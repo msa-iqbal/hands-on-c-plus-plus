@@ -594,11 +594,12 @@ Short: 10
 Pointer (address of num): 0x7ffeeef4b7dc
 ```
 
-> [!IMPORTANT] - Format Specifiers? Not in C++
->
-> - C++ **does not use** format specifiers like `%d`, `%f`, etc. Instead:
->   - `cin >> var;` and `cout << var;` work with the variable's type.
->   - It’s **type-safe**, unlike C's `printf()`/`scanf()` which rely on specifiers.
+### Format Specifiers? Not in C++
+
+C++ **does not use** format specifiers like `%d`, `%f`, etc. Instead:
+
+- `cin >> var;` and `cout << var;` work with the variable's type.
+- It’s **type-safe**, unlike C's `printf()`/`scanf()` which rely on specifiers.
 
 ### Want to Format Output:?
 
@@ -1330,7 +1331,7 @@ int result = add(3, 5);  // Function call
 - Passes arguments `3` and `5` to the function.
 - Stores the returned value in `result`.
 
-### **Full Example with All Components**
+**Full Example with All Components**
 
 ```cpp
 #include <iostream>
@@ -1498,9 +1499,7 @@ Example: `cout`, `cin`, `strlen()`, `malloc()`, etc.
 
 **Header Files:**
 
-You don't need to define these functions, but you must include the appropriate header files.
-
-Some Common Header Files:
+You don't need to define these functions, but you must include the appropriate header files. Some Common Header Files:
 
 - **`<iostream>`**: For input-output.
 
@@ -1589,7 +1588,7 @@ Random Number 2: 846930886
 Random Number 3: 1681692777
 ```
 
-(Note: Output: will vary every time if seeded using `srand(time(0));`)
+💡 Note: Output: will vary every time if seeded using `srand(time(0));`
 
 **Example (String Concatenation): `strcat()`**
 
@@ -1778,7 +1777,7 @@ Enter your name: Alice
 Hello, Alice!
 ```
 
-\*\*Example: Full Line Input Using `getline()`
+**Example: Full Line Input Using `getline()`**
 
 ```cpp
 #include <iostream>
@@ -3959,7 +3958,8 @@ d.f = 3.14
 d.i after setting d.f = 1078523331
 ```
 
-> [!CAUTION] Memory sharing causes unexpected value in `d.i` after assigning to `d.f`.
+> [!CAUTION]
+> Memory sharing causes unexpected value in `d.i` after assigning to `d.f`.
 
 ### Enumeration (`enum`)
 
@@ -4699,7 +4699,8 @@ int main() {
 Loop completed with optimization.
 ```
 
-> [!WARNING] The actual performance gain won't be visible for such a small loop.
+> [!WARNING]
+> The actual performance gain won't be visible for such a small loop.
 
 <!-- START "Jump to Top"-->
 <p align="right">
