@@ -1,29 +1,36 @@
-# Hands-on C
+# Hands-on C++
 
-C is a general-purpose, procedural, and case-sensitive programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It is considered one of the most influential languages in computer science history and is often referred to as the "mother of all modern programming languages."
+**C++** is a **general-purpose, high-performance programming language** developed as an extension of the **C language** by **Bjarne Stroustrup** at Bell Labs in **1979**. It supports both **procedural** and **object-oriented programming**, making it a **multi-paradigm language**.
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
-1. [Comments in C](#comments-in-c)
-1. [Keywords in C](#keywords-in-c)
+1. [Comments in C++](#comments-in-c)
+1. [Keywords in C++](#keywords-in-c)
 1. [Escape sequences](#escape-sequences)
 1. [Variables](#variables)
-1. [Input and Output](#input-and-output)
-1. [Data Types & Format Specifiers](#data-types--format-specifiers)
+1. [Input and Output:](#input-and-output)
+1. [Data Types](#data-types)
 1. [Operators](#operators)
-1. [Control Structures](#control-structures)
+1. [Control Flow](#control-flow)
 1. [Function](#function)
 1. [String](#string)
 1. [Array](#array)
 1. [Pointers](#pointers)
+1. [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+1. [Inheritance](#inheritance)
+1. [Polymorphism](#polymorphism)
+1. [Encapsulation](#encapsulation)
+1. [Abstraction](#abstraction)
+1. [Operator Overloading](#operator-overloading)
+1. [Templates and Generics](#templates-and-generics)
 1. [Structure, Union and Enum](#structure-union-and-enum)
 1. [Dynamic Memory Allocation](#dynamic-memory-allocation)
-1. [Typedef and Type Casting](#typedef-and-type-casting)
+1. [Type Conversion and Typecasting](#type-conversion-and-typecasting)
 1. [File Handling](#file-handling)
 1. [Preprocessor Directives](#preprocessor-directives)
 1. [Error Handling](#error-handling)
-1. [Practice Problems and Solutions](#practice-problems-and-solutions)
+1. [Practice Problems and Projects](#practice-problems-and-projects)
 
 ### <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2699_fe0f/512.gif" alt="⚙" width="15" height="15"> C/C++ Development Setup
 
@@ -37,37 +44,38 @@ C is a general-purpose, procedural, and case-sensitive programming language deve
 
 ## Introduction
 
-### Key Features
+### Key Features of C++
 
-- **Procedural Language:** Emphasizes functions and step-by-step procedures.
+- **Compiled Language** – Translates source code into machine code for faster execution.
+- **Object-Oriented** – Supports classes, objects, inheritance, polymorphism, encapsulation, and abstraction.
+- **Low-Level Manipulation** – Allows direct manipulation of memory using pointers.
+- **Rich Standard Library** – Includes the Standard Template Library (STL) for data structures and algorithms.
+- **Portable** – Write once, run anywhere (on systems with the same compiler).
+- **Fast Execution** – Closer to hardware, C++ is often used in performance-critical applications.
 
-- **Low-level Access:** Offers direct memory manipulation using pointers.
+### Why Learn C++?
 
-- **Portability:** C programs can be compiled and run on many types of machines with minimal changes.
+- Foundation for understanding programming and computer science.
+- Teaches memory management, performance tuning, and data structures.
+- Used widely in industry and competitive programming.
 
-- **Efficient Performance:** Known for its speed and close-to-hardware behavior.
+### Applications of C++
 
-- **Rich Library Support:** Comes with a standard library for I/O, string manipulation, memory allocation, etc.
-
-- **Modular Code:** Code can be organized into functions for reusability and clarity.
-
-### Why C is Important
-
-- **Foundation Language:** Languages like C++, Java, C#, and even Python are influenced by C.
-
-- **Operating Systems:** Core components of OSs like Linux, Windows, and macOS are written in C.
-
-- **Embedded Systems:** Used extensively in firmware and microcontroller programming.
-
-- **Compilers & Interpreters:** Many compilers (e.g., GCC) and interpreters are themselves written in C.
+- **Game Development:** Unreal Engine, game engines, physics simulations.
+- **System Programming:** Operating systems, device drivers.
+- **Embedded Systems:** Firmware for electronic devices.
+- **GUI Applications:** Tools using Qt, wxWidgets
+- **Financial Systems:** High-frequency trading, banking software.
+- **Compilers & Tools:** GCC, LLVM
 
 ### Basic Example
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    printf("Hello, World!\n");
+    cout << "Hello, World!" << endl;   // Output: Hello, World!
     return 0;
 }
 ```
@@ -78,20 +86,26 @@ int main() {
 </p>
 <!-- END "Jump to Top" -->
 
-## Comments in C
+## Comments in C++
 
-In **C language**, comments are used to explain the code and make it more readable. Comments are ignored by the compiler, so they don’t affect program execution.
+In **C++**, comments are used to document code and improve its readability. Just like in C, **comments are ignored by the compiler**, so they do not affect how the program runs.
 
-**Single-line Comment:**
+C++ supports two types of comments:
 
-```c
+### Single-line Comment
+
+Use `//` for single-line comments.
+
+```cpp
 // This is a single-line comment
 int x = 10;  // This sets x to 10
 ```
 
-**Multi-line Comment:**
+### Multi-line Comment
 
-```c
+Use `/* */` for multi-line comments.
+
+```cpp
 /* This is a multi-line comment
    It can span multiple lines
 */
@@ -104,27 +118,37 @@ int y = 20;
 </p>
 <!-- END "Jump to Top" -->
 
-## Keywords in C
+## Keywords in C++
 
-Keywords are reserved words in C language that have special, predefined meanings. They cannot be used as identifiers, such as variable names, function names, or label names, because they are an essential part of the C syntax and grammar.
+**Keywords** are reserved words in **C++** that have special, predefined meanings. These words form the **syntax and structure** of the language and **cannot be used as identifiers** (such as variable names, function names, or class names).
 
-**C language keyword list (based on the C99 standard, which is very widely used):**
+C++ inherits most of its keywords from C and introduces additional ones to support **object-oriented programming**, **templates**, **exception handling**, **namespaces**, and more.
 
-| No. | Keyword    | No. | Keyword    | No. | Keyword    | No. | Keyword          |
-| --: | ---------- | --: | ---------- | --: | ---------- | --: | ---------------- |
-|   1 | `auto`     |  14 | `for`      |  27 | `long`     |  40 | `void`           |
-|   2 | `break`    |  15 | `goto`     |  28 | `register` |  41 | `volatile`       |
-|   3 | `case`     |  16 | `if`       |  29 | `restrict` |  42 | `while`          |
-|   4 | `char`     |  17 | `inline`   |  30 | `return`   |  43 | `_Bool`          |
-|   5 | `const`    |  18 | `int`      |  31 | `short`    |  44 | `_Complex`       |
-|   6 | `continue` |  19 | `long`     |  32 | `signed`   |  45 | `_Imaginary`     |
-|   7 | `default`  |  20 | `restrict` |  33 | `sizeof`   |  46 | `_Alignas`       |
-|   8 | `do`       |  21 | `signed`   |  34 | `static`   |  47 | `_Alignof`       |
-|   9 | `double`   |  22 | `sizeof`   |  35 | `struct`   |  48 | `_Atomic`        |
-|  10 | `else`     |  23 | `static`   |  36 | `switch`   |  49 | `_Generic`       |
-|  11 | `enum`     |  24 | `struct`   |  37 | `typedef`  |  50 | `_Noreturn`      |
-|  12 | `extern`   |  25 | `typedef`  |  38 | `union`    |  51 | `_Static_assert` |
-|  13 | `float`    |  26 | `union`    |  39 | `unsigned` |  52 | `_Thread_local`  |
+### C++ Keyword List (based on C++17 standard)
+
+| No. | Keyword   | No. | Keyword        | No. | Keyword            | No. | Keyword        |
+| --: | --------- | --: | -------------- | --: | ------------------ | --: | -------------- |
+|   1 | `alignas` |  17 | `do`           |  33 | `mutable`          |  49 | `template`     |
+|   2 | `alignof` |  18 | `double`       |  34 | `namespace`        |  50 | `this`         |
+|   3 | `and`     |  19 | `dynamic_cast` |  35 | `new`              |  51 | `thread_local` |
+|   4 | `and_eq`  |  20 | `else`         |  36 | `noexcept`         |  52 | `throw`        |
+|   5 | `asm`     |  21 | `enum`         |  37 | `not`              |  53 | `true`         |
+|   6 | `auto`    |  22 | `explicit`     |  38 | `not_eq`           |  54 | `try`          |
+|   7 | `bitand`  |  23 | `export`       |  39 | `nullptr`          |  55 | `typedef`      |
+|   8 | `bitor`   |  24 | `extern`       |  40 | `operator`         |  56 | `typeid`       |
+|   9 | `bool`    |  25 | `false`        |  41 | `or`               |  57 | `typename`     |
+|  10 | `break`   |  26 | `float`        |  42 | `or_eq`            |  58 | `union`        |
+|  11 | `case`    |  27 | `for`          |  43 | `private`          |  59 | `unsigned`     |
+|  12 | `catch`   |  28 | `friend`       |  44 | `protected`        |  60 | `using`        |
+|  13 | `char`    |  29 | `goto`         |  45 | `public`           |  61 | `virtual`      |
+|  14 | `class`   |  30 | `if`           |  46 | `register`         |  62 | `void`         |
+|  15 | `compl`   |  31 | `inline`       |  47 | `reinterpret_cast` |  63 | `volatile`     |
+|  16 | `const`   |  32 | `int`          |  48 | `return`           |  64 | `wchar_t`      |
+
+> [!NOTE]
+>
+> - Some older keywords (like `register`, `goto`, `volatile`) are rarely used in modern C++ code.
+> - Meanwhile, keywords like `auto`, `nullptr`, `constexpr`, `decltype`, and `template` are heavily used in modern C++.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -134,46 +158,54 @@ Keywords are reserved words in C language that have special, predefined meanings
 
 ## Escape sequences
 
-Escape sequences (also known as **backslash character constants**) are special character combinations that begin with a backslash (`\`). They are used to represent characters that cannot be typed directly or have special meaning in strings or characters.
+**Escape sequences** (also called **backslash character constants**) are special character combinations starting with a backslash (`\`). They are used to represent characters that either can't be typed directly or perform special actions in strings and characters.
 
-**List of Common Escape Sequences:**
+They are essential in **text formatting**, **output control**, and **special character representation**.
 
-| Escape Sequence | Meaning                           | Example in Code              | Output          |
-| --------------- | --------------------------------- | ---------------------------- | --------------- |
-| `\n`            | New line                          | `printf("Hello\nWorld");`    | Hello<br>World  |
-| `\t`            | Horizontal tab                    | `printf("Hello\tWorld");`    | Hello  World    |
-| `\b`            | Backspace                         | `printf("Helloo\b!");`       | Hello!          |
-| `\r`            | Carriage return                   | `printf("Hello\rWorld");`    | World           |
-| `\f`            | Form feed (page break)            | _Rarely used_                | —               |
-| `\a`            | Alert (bell sound)                | `printf("\a");`              | 🔔 (beep sound) |
-| `\\`            | Backslash                         | `printf("\\");`              | `\`             |
-| `\'`            | Single quote                      | `printf("\'");`              | `'`             |
-| `\"`            | Double quote                      | `printf("\"");`              | `"`             |
-| `\?`            | Question mark                     | `printf("\?");`              | `?`             |
-| `\0`            | Null character (end of string)    | _Used in string terminators_ | —               |
-| `\ooo`          | Octal number (e.g., `\141` = 'a') | `printf("\141");`            | `a`             |
-| `\xhh`          | Hexadecimal (e.g., `\x61` = 'a')  | `printf("\x61");`            | `a`             |
+### Common Escape Sequences in C++
+
+| Escape Sequence | Meaning                           | Example in Code            | Output:         |
+| --------------- | --------------------------------- | -------------------------- | --------------- |
+| `\n`            | New line                          | `cout << "Hello\nWorld";`  | Hello<br>World  |
+| `\t`            | Horizontal tab                    | `cout << "Hello\tWorld";`  | Hello  World    |
+| `\b`            | Backspace                         | `cout << "Helloo\b!";`     | Hello!          |
+| `\r`            | Carriage return                   | `cout << "Hello\rWorld";`  | World           |
+| `\f`            | Form feed (page break)            | _Rarely used_              | —               |
+| `\a`            | Alert (bell sound)                | `cout << "\a";`            | 🔔 (beep sound) |
+| `\\`            | Backslash                         | `cout << "\\";`            | `\`             |
+| `\'`            | Single quote                      | `cout << "\'";`            | `'`             |
+| `\"`            | Double quote                      | `cout << "\"";`            | `"`             |
+| `\?`            | Question mark                     | `cout << "\?";`            | `?`             |
+| `\0`            | Null character (end of string)    | _Used in character arrays_ | —               |
+| `\ooo`          | Octal number (e.g., `\141` = 'a') | `cout << "\141";`          | `a`             |
+| `\xhh`          | Hexadecimal (e.g., `\x61` = 'a')  | `cout << "\x61";`          | `a`             |
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    printf("Line1\nLine2\n");      // newline
-    printf("Tab\tSpace\n");        // tab
-    printf("Backslash: \\\n");     // backslash
-    printf("Quote: \' \" \n");     // single and double quote
-    printf("Beep\a\n");            // beep (if supported)
+    cout << "Line1\nLine2\n";           // newline
+    cout << "Tab\tSpace\n";             // tab
+    cout << "Backslash: \\\n";          // backslash
+    cout << "Quote: \' \" \n";          // single and double quotes
+    cout << "Beep\a\n";                 // beep sound (if supported)
     return 0;
 }
 ```
 
 > [!NOTE]
 >
-> - Escape sequences are used in both **character** (`'\n'`) and **string** (`"\n"`) literals.
-> - They are vital for **text formatting**, **controlling output**, and representing special characters.
-> - Some (like `\f`, `\a`) may not have visible effects in modern terminals, but they are still standard.
+> - Escape sequences are used in both character literals (`'\n'`) and string literals (`"\n"`).
+> - They are crucial for:
+>
+>   - Formatting output
+>   - Representing invisible/special characters
+>   - Handling control characters in streams
+>
+> - Some escape sequences (`\a`, `\f`, etc.) may not have visible effects in all modern terminal environments.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -183,25 +215,43 @@ int main() {
 
 ## Variables
 
-A **variable** is a **named memory location** used to store a value that can be changed during program execution.
+A **variable** in C++ is a **named memory location** used to store data that can be modified during program execution.
 
 - Acts as a **storage unit** for data.
 - Must be **declared** with a data type before use.
-- The value of a variable **can be changed** during program execution.
+- Its value **can be changed** at any time during execution.
 
 **Syntax:**
 
-```c
+```cpp
 <data_type> <variable_name>;
 <data_type> <variable_name> = value;
 ```
 
 **Example:**
 
-```c
-int age;         // Declaration
-age = 25;        // Assignment
-float pi = 3.14; // Declaration + Assignment
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;         // Declaration
+    age = 25;        // Assignment
+
+    float pi = 3.14; // Declaration + Assignment
+
+    cout << "Age: " << age << endl;
+    cout << "Pi: " << pi << endl;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```plaintext
+Age: 25
+Pi: 3.14
 ```
 
 ### Rules for Naming Variables
@@ -211,38 +261,39 @@ float pi = 3.14; // Declaration + Assignment
 |        1 | Must begin with a **letter** (A–Z or a–z) or **underscore `_`** |
 |        2 | Can include **letters, digits (0–9), and underscores**          |
 |        3 | **Cannot start with a digit**                                   |
-|        4 | **Cannot use C keywords** (like `int`, `return`, etc.)          |
+|        4 | **Cannot use C++ keywords** (like `int`, `return`, etc.)        |
 |        5 | **Case-sensitive** (`Age` and `age` are different)              |
 |        6 | Should be **meaningful** (use descriptive names)                |
 
-### Types of Variables
+### Types of Variables in C++
 
-| Type         | Description                                                     | Scope          |
-| ------------ | --------------------------------------------------------------- | -------------- |
-| **Local**    | Declared inside a function/block                                | Function/block |
-| **Global**   | Declared outside all functions, accessible by all functions     | Whole program  |
-| **Static**   | Retains value between function calls, has local scope           | Block/function |
-| **Extern**   | Declared in one file, defined in another file (shared globally) | Global         |
-| **Register** | Suggests storing variable in a CPU register (faster access)     | Local          |
+| Type         | Description                                                 | Scope          |
+| ------------ | ----------------------------------------------------------- | -------------- |
+| **Local**    | Declared inside a function/block                            | Function/block |
+| **Global**   | Declared outside all functions, accessible by all functions | Whole program  |
+| **Static**   | Retains value between function calls, has local scope       | Block/function |
+| **Extern**   | Declared in one file, defined in another (shared globally)  | Global         |
+| **Register** | Suggests storing variable in a CPU register (faster access) | Local          |
 
-**Example (Different Variable Types):**
+**Example: (Variable Types)**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int globalVar = 10; // Global variable
 
 void function() {
     static int staticVar = 0; // Static variable
     staticVar++;
-    printf("Static: %d\n", staticVar);
+    cout << "Static: " << staticVar << endl;
 }
 
 int main() {
     int localVar = 5; // Local variable
 
-    printf("Global: %d\n", globalVar);
-    printf("Local: %d\n", localVar);
+    cout << "Global: " << globalVar << endl;
+    cout << "Local: " << localVar << endl;
 
     function();
     function();
@@ -253,16 +304,16 @@ int main() {
 
 **Output:**
 
-```markdown
+```plaintext
 Global: 10
 Local: 5
 Static: 1
 Static: 2
 ```
 
-**Example - ✅ Good Practice:**
+**✅ Good Practice Example**
 
-```c
+```cpp
 int studentAge = 20;
 float temperature = 36.6;
 char grade = 'A';
@@ -270,17 +321,17 @@ char grade = 'A';
 
 ### Constants vs Variables
 
-| Feature      | Variable                    | Constant                     |
-| ------------ | --------------------------- | ---------------------------- |
-| Value change | Can change during execution | Cannot change after assigned |
-| Declaration  | `int age = 20;`             | `const int age = 20;`        |
+| Feature      | Variable                    | Constant                    |
+| ------------ | --------------------------- | --------------------------- |
+| Value change | Can change during execution | Cannot change once assigned |
+| Declaration  | `int age = 20;`             | `const int age = 20;`       |
 
 > [!TIP]
 >
-> - Variable values are stored in **RAM**.
-> - Use `const` for **read-only** values.
-> - Initialize variables to **avoid garbage values**.
-> - Use meaningful names for better **code readability**.
+> - Variables store values in RAM.
+> - Use const for read-only values.
+> - Always initialize variables to avoid garbage values.
+> - Use descriptive names to improve code readability.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -290,131 +341,176 @@ char grade = 'A';
 
 ## Input and Output
 
-C uses **standard input/output functions** provided by the `stdio.h` header file for data communication between the user and the program.
+C++ uses **standard input/output objects** provided by the `iostream` header for communication between the user and the program.
 
-**Header File:**
+### Header File
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
 ```
 
-All input/output operations in C require the `stdio.h` header file.
+💡 You must include this header to use cin, cout, and other standard I/O utilities.
 
-### Output
+### Output: `cout`
 
-**`printf()` – Formatted Output**
-
-- Used to display output to the screen.
-- Supports format specifiers like `%d`, `%f`, `%c`, etc.
+**`cout`** is used for output to the console. It uses the **insertion operator (`<<`)**.
 
 **Syntax:**
 
-```c
-printf("format string", variables);
+```cpp
+cout << "text" << variable;
 ```
 
 **Example:**
 
-```c
-int age = 20;
-printf("Age is %d", age);  // Output: Age is 20
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age = 20;
+    cout << "Age is " << age << endl;
+    return 0;
+}
 ```
 
-### Input
+**Output:**
 
-**`scanf()` – Formatted Input**
+```plaintext
+Age is 20
+```
 
-- Used to read input from the user.
-- Requires **address-of operator (`&`)** for variables (except strings).
+### Input: `cin`
+
+**`cin`** is used to read input from the user. It uses the **extraction operator (`>>`)**.
 
 **Syntax:**
 
-```c
-scanf("format string", &variables);
+```cpp
+cin >> variable;
 ```
 
 **Example:**
 
-```c
-int age;
-scanf("%d", &age);
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "You entered: " << age << endl;
+    return 0;
+}
 ```
 
-### Format Specifiers (Common)
+**Output: (sample interaction)**
 
-| Data Type      | Format Specifier | Used With         |
-| -------------- | ---------------- | ----------------- |
-| `int`          | `%d`, `%i`       | `scanf`, `printf` |
-| `float`        | `%f`             | `scanf`, `printf` |
-| `double`       | `%lf`            | `scanf`, `printf` |
-| `char`         | `%c`             | `scanf`, `printf` |
-| `string`       | `%s`             | `scanf`, `printf` |
-| `unsigned int` | `%u`             | `scanf`, `printf` |
-| `long int`     | `%ld`            | `scanf`, `printf` |
-| `pointer`      | `%p`             | `printf` only     |
+```plaintext
+Enter your age: 25
+You entered: 25
+```
 
-**Example (Input and Output Program):**
+### Format Specifiers? No Need
 
-```c
-#include <stdio.h>
+Unlike C, **C++ does not use format specifiers** like `%d`, `%f`. It handles **type safety** with stream objects (`cin`, `cout`).
+
+**Example: Input and Output:**
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main() {
     int age;
     float salary;
     char initial;
-    char name[50];
+    string name;
 
     // Input
-    printf("Enter your age: ");
-    scanf("%d", &age);
+    cout << "Enter your age: ";
+    cin >> age;
 
-    printf("Enter your salary: ");
-    scanf("%f", &salary);
+    cout << "Enter your salary: ";
+    cin >> salary;
 
-    printf("Enter your first initial: ");
-    scanf(" %c", &initial);  // Space before %c to ignore newline
+    cout << "Enter your first initial: ";
+    cin >> initial;
 
-    printf("Enter your name: ");
-    scanf("%s", name);  // no & for string input
+    cout << "Enter your name: ";
+    cin >> name; // string input (single word only)
 
-    // Output
-    printf("\n--- OUTPUT ---\n");
-    printf("Age: %d\n", age);
-    printf("Salary: %.2f\n", salary);
-    printf("Initial: %c\n", initial);
-    printf("Name: %s\n", name);
+    // Output:
+    cout << "\n--- OUTPUT ---\n";
+    cout << "Age: " << age << endl;
+    cout << "Salary: " << salary << endl;
+    cout << "Initial: " << initial << endl;
+    cout << "Name: " << name << endl;
 
     return 0;
 }
 ```
 
-### Other I/O Functions
+**Output:**
 
-| Function    | Purpose                           |
-| ----------- | --------------------------------- |
-| `getchar()` | Reads a single character          |
-| `putchar()` | Outputs a single character        |
-| `gets()`    | Reads a string (⚠️ unsafe, avoid) |
-| `puts()`    | Outputs a string with newline     |
-| `fgets()`   | Reads a string safely (preferred) |
-| `fprintf()` | Outputs to a file stream          |
-| `fscanf()`  | Inputs from a file stream         |
+```plaintext
+Enter your age: 25
+Enter your salary: 65000.5
+Enter your first initial: M
+Enter your name: Alice
 
-**Example: `fgets()` and `puts()`**
-
-```c
-char name[100];
-printf("Enter your full name: ");
-fgets(name, sizeof(name), stdin);
-puts("Hello,");
-puts(name);
+--- OUTPUT ---
+Age: 25
+Salary: 65000.5
+Initial: M
+Name: Alice
 ```
+
+### Full-Line Input: `getline()`
+
+Use `getline(cin, str)` to accept **entire lines with spaces**.
+
+**Example: `getline()`**
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string fullName;
+    cout << "Enter your full name: ";
+    getline(cin, fullName);
+    cout << "Hello, " << fullName << "!" << endl;
+    return 0;
+}
+```
+
+**Output:**
+
+```cpp
+Enter your full name: John Smith
+Hello, John Smith!
+```
+
+### Other I/O Functions in C++
+
+| Function    | Purpose                         | Notes                 |
+| ----------- | ------------------------------- | --------------------- |
+| `cin`       | Read input (no format needed)   | Safe and type-checked |
+| `cout`      | Output: to console              | Uses `<<` operator    |
+| `getline()` | Read full line including spaces | Safer for strings     |
+| `cerr`      | Output: error messages          | Unbuffered            |
+| `clog`      | Output: error/info messages     | Buffered              |
 
 > [!NOTE]
 >
-> - `scanf("%s", str)` reads only a **single word** (no spaces). Use `fgets()` for full-line input.
-> - `printf()` does not require the address-of operator.
-> - Be careful with buffer issues when mixing `scanf()` with `gets()` or `fgets()`.
+> - Use `getline()` to handle strings with **spaces**.
+> - `cin` ignores **leading whitespace**, but `getline()` does not.
+> - `cin >>` stops at the first whitespace character.
+> - `cout` automatically formats values (no need for `%d`, `%f`, etc.).
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -422,102 +518,121 @@ puts(name);
 </p>
 <!-- END "Jump to Top" -->
 
-## Data Types & Format Specifiers
+## Data Types
 
-**Data types** specify the type of data a variable can hold. Different **format specifiers** are used in **printf** and **scanf** to handle the input and output of these data types.
+**Data types** in C++ specify the kind of data a variable can store. C++ supports both **primitive** and **user-defined** types. Unlike C, **C++ uses type-safe I/O operations** with `cin` and `cout`, so there are **no format specifiers**.
 
-**Basic Data Types:**
+### Basic Data Types
 
-- **`char`**: Stores a single character.
-  - Size: 1 byte
-  - Range: `-128` to `127` (signed) or `0` to `255` (unsigned)
-- **`int`**: Stores integer values.
+| Data Type | Description                               | Size (Typical) | Range                                               |
+| --------- | ----------------------------------------- | -------------- | --------------------------------------------------- |
+| `char`    | Stores a single character                 | 1 byte         | `-128` to `127` (signed) or `0` to `255` (unsigned) |
+| `int`     | Stores integer values                     | 4 bytes        | `-2,147,483,648` to `2,147,483,647`                 |
+| `float`   | Single-precision floating point number    | 4 bytes        | `±3.4E±38` (approx.)                                |
+| `double`  | Double-precision floating point number    | 8 bytes        | `±1.7E±308` (approx.)                               |
+| `void`    | Represents absence of type (e.g., return) | 0 bytes        | N/A                                                 |
 
-  - Size: 2 or 4 bytes (depending on system architecture)
-  - Range: `-32,768` to `32,767` (16-bit) or `-2^31` to `2^31 - 1` (32-bit)
+### Derived Data Types
 
-- **`float`**: Stores single-precision floating point numbers.
+| Type      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| `array`   | Collection of elements of the same type                   |
+| `pointer` | Stores memory address of another variable                 |
+| `struct`  | Groups variables of different types together              |
+| `union`   | Shares memory among multiple variables                    |
+| `enum`    | User-defined type with named constants (usually integers) |
 
-  - Size: 4 bytes
-  - Range: `1.2E-38` to `3.4E+38`
+### Type Modifiers
 
-- **`double`**: Stores double-precision floating point numbers.
+| Modifier   | Effect                                                             |
+| ---------- | ------------------------------------------------------------------ |
+| `signed`   | Allows negative and positive values (default for `int` and `char`) |
+| `unsigned` | Only positive values, larger upper bound                           |
+| `long`     | Extends the range of `int` or `double`                             |
+| `short`    | Reduces the size of `int`, saves memory                            |
 
-  - Size: 8 bytes
-  - Range: `2.3E-308` to `1.7E+308`
+**Example: Using Various Data Types**
 
-- **`void`**: Represents an absence of data. It is used in functions that do not return a value.
-
-**Derived Data Types:**
-
-- **`array`**: Collection of elements of the same type.
-- **`pointer`**: A variable that stores the memory address of another variable.
-- **`struct`**: Collection of variables of different data types.
-- **`union`**: Collection of variables that share the same memory location.
-- **`enum`**: A user-defined data type with a set of named integer constants.
-
-### **Modifiers**
-
-Modifiers alter the range of fundamental data types.
-
-- **`signed`**: Allows negative numbers.
-- **`unsigned`**: Disallows negative numbers, expanding the positive range.
-- **`long`**: Increases the range of `int` and `double`.
-- **`short`**: Reduces the size of `int` to save memory.
-
-### **Format Specifiers in C**
-
-**For `printf` (Output)**
-
-| Data Type      | Format Specifier | Example                      | Output         |
-| -------------- | ---------------- | ---------------------------- | -------------- |
-| `char`         | `%c`             | `printf("%c", 'A');`         | A              |
-| `int`          | `%d`, `%i`       | `printf("%d", 25);`          | 25             |
-| `float`        | `%f`             | `printf("%f", 3.14);`        | 3.140000       |
-| `double`       | `%lf`            | `printf("%lf", 3.141592);`   | 3.141592       |
-| `unsigned int` | `%u`             | `printf("%u", 123);`         | 123            |
-| `long`         | `%ld`            | `printf("%ld", 1234567890);` | 1234567890     |
-| `short`        | `%hd`            | `printf("%hd", 25);`         | 25             |
-| `string`       | `%s`             | `printf("%s", "Hello");`     | Hello          |
-| `pointer`      | `%p`             | `printf("%p", &x);`          | 0x7ffdfd9cdbd0 |
-
-**For `scanf` (Input)**
-
-| Data Type      | Format Specifier | Example               |
-| -------------- | ---------------- | --------------------- |
-| `char`         | `%c`             | `scanf("%c", &ch);`   |
-| `int`          | `%d`, `%i`       | `scanf("%d", &num);`  |
-| `float`        | `%f`             | `scanf("%f", &num);`  |
-| `double`       | `%lf`            | `scanf("%lf", &num);` |
-| `unsigned int` | `%u`             | `scanf("%u", &num);`  |
-| `long`         | `%ld`            | `scanf("%ld", &num);` |
-| `short`        | `%hd`            | `scanf("%hd", &num);` |
-| `string`       | `%s`             | `scanf("%s", str);`   |
-| `pointer`      | `%p`             | `scanf("%p", &ptr);`  |
-
-**Example:**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int x = 10;
-    float pi = 3.14159;
+    char letter = 'A';
+    int num = 100;
+    float pi = 3.14f;
+    double precisePi = 3.1415926535;
+    unsigned int uNum = 250;
+    long long bigNum = 1234567890123;
+    short smallNum = 10;
+    int* ptr = &num;
 
-    // Using format specifiers
-    printf("Integer: %d\n", x);   // %d for int
-    printf("Float: %f\n", pi);    // %f for float
-    printf("Pointer: %p\n", &x);  // %p for pointer
+    // Output: without format specifiers
+    cout << "Character: " << letter << endl;
+    cout << "Integer: " << num << endl;
+    cout << "Float: " << pi << endl;
+    cout << "Double: " << precisePi << endl;
+    cout << "Unsigned Int: " << uNum << endl;
+    cout << "Long Long: " << bigNum << endl;
+    cout << "Short: " << smallNum << endl;
+    cout << "Pointer (address of num): " << ptr << endl;
+
     return 0;
 }
 ```
 
+**Output:**
+
+```plaintext
+Character: A
+Integer: 100
+Float: 3.14
+Double: 3.14159
+Unsigned Int: 250
+Long Long: 1234567890123
+Short: 10
+Pointer (address of num): 0x7ffeeef4b7dc
+```
+
+> [!IMPORTANT] - Format Specifiers? Not in C++
+>
+> - C++ **does not use** format specifiers like `%d`, `%f`, etc. Instead:
+>   - `cin >> var;` and `cout << var;` work with the variable's type.
+>   - It’s **type-safe**, unlike C's `printf()`/`scanf()` which rely on specifiers.
+
+### Want to Format Output:?
+
+Use C++ I/O manipulators like `std::fixed`, `std::setprecision`, `std::setw`, etc. from `<iomanip>`.
+
+**Example: Precision Formatting**
+
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double num = 3.14159265;
+
+    cout << "Default: " << num << endl;
+    cout << "Fixed with 2 decimal places: " << fixed << setprecision(2) << num << endl;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```plaintext
+Default: 3.14159
+Fixed with 2 decimal places: 3.14
+```
+
 > [!NOTE]
 >
-> - `%d` and `%i` can be used interchangeably for integers in **printf** and **scanf**.
-> - `%lf` is used for **double** in **printf** but can be used as `%f` in **scanf**.
-> - The `long` and `short` modifiers help control the size and range of data types in C.
-> - The `%p` specifier is used to print the address of a variable (pointer).
+> - C++ removes the need for format specifiers by overloading `<<` and `>>`.
+> - Type safety makes input/output less error-prone than C.
+> - You can still use `printf()` and `scanf()` in C++, but it's discouraged in modern practice.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -527,7 +642,7 @@ int main() {
 
 ## Operators
 
-Operators in C are **symbols** used to perform operations on **variables and values**.
+Operators in C++ are **symbols** used to perform operations on **variables and values**.
 
 **Types of Operators:**
 
@@ -645,25 +760,26 @@ Operate on binary digits.
 
 A shorthand for `if-else`.
 
-```c
+```cpp
 condition ? expression_if_true : expression_if_false;
 ```
 
 **Example:**
 
-```c
- int a = 10, b = 20;
- int max = (a > b) ? a : b;  // Output: 20
+```cpp
+int a = 10, b = 20;
+int max = (a > b) ? a : b;
+cout << "Max: " << max << endl;  // Output: 20
 ```
 
 ### **Sizeof Operator**
 
-Returns size of a variable or data type.
+Returns the size (in bytes) of a variable or type.
 
 **Example:**
 
-```c
-printf("%zu", sizeof(int));  // Output: 4
+```cpp
+cout << sizeof(int);  // Output: 4 (usually)
 ```
 
 ### **Comma Operator**
@@ -672,7 +788,7 @@ Evaluates multiple expressions, returns the last.
 
 **Example:**
 
-```c
+```cpp
 int x = (a = 5, b = 10);  // x = 10
 ```
 
@@ -685,22 +801,33 @@ Used for pointer operations.
 | `*`      | Dereference | `*ptr`  |
 | `&`      | Address-of  | `&var`  |
 
-**Example:**
+**🟢🔵🟣 Complete Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int a = 5, b = 2;
 
-    printf("Addition: %d\n", a + b);
-    printf("Greater? %d\n", a > b);
-    printf("AND logic: %d\n", (a > 0) && (b > 0));
-    printf("Bitwise AND: %d\n", a & b);
-    printf("Ternary Max: %d\n", (a > b) ? a : b);
+    cout << "Addition: " << a + b << endl;
+    cout << "Greater? " << (a > b) << endl;
+    cout << "Logical AND: " << ((a > 0) && (b > 0)) << endl;
+    cout << "Bitwise AND: " << (a & b) << endl;
+    cout << "Ternary Max: " << ((a > b) ? a : b) << endl;
 
     return 0;
 }
+```
+
+**Output:**
+
+```plaintext
+Addition: 7
+Greater? 1
+Logical AND: 1
+Bitwise AND: 0
+Ternary Max: 5
 ```
 
 <!-- START "Jump to Top"-->
@@ -709,9 +836,9 @@ int main() {
 </p>
 <!-- END "Jump to Top" -->
 
-## Control Structures
+## Control Flow
 
-Control structures in C determine the **flow of execution** of the program — **which blocks of code get executed** and when.
+Control structures in C++ determine the **flow of execution** of the program — **which blocks of code get executed** and when.
 
 **Types of Control Structures:**
 
@@ -719,13 +846,13 @@ Control structures in C determine the **flow of execution** of the program — *
 2. **Looping Statements (Iteration)**
 3. **Jump Statements (Branching)**
 
-### **Conditional Statements**
+### **Conditional Statements:**
 
 Used to **execute code based on conditions**.
 
-**`if` Statement**
+#### **`if` Statement**
 
-```c
+```cpp
 if (condition) {
     // code to execute if condition is true
 }
@@ -733,25 +860,30 @@ if (condition) {
 
 Example:
 
-```c
- #include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
-  int main() {
-      int number = 10;
+int main() {
+    int number = 10;
 
-      if (number > 0) {
-          printf("The number is positive.\n");
-      }
+    if (number > 0) {
+        cout << "The number is positive." << endl;
+    }
 
-      return 0;
-  }
-
-// OUTPUT: The number is positive.
+    return 0;
+}
 ```
 
-**`if-else` Statement**
+Output:
 
-```c
+```plaintext
+The number is positive.
+```
+
+#### **`if-else` Statement**
+
+```cpp
 if (condition) {
     // if true
 } else {
@@ -761,27 +893,32 @@ if (condition) {
 
 Example:
 
-```c
-  #include <stdio.h>
-  int main() {
+```cpp
+#include <iostream>
+using namespace std;
 
-      int number = 10;
+int main() {
+    int number = 10;
 
-      if (number > 0) {
-          printf("The number is positive.\n");
-      } else {
-          printf("The number is not positive.\n");
-      }
+    if (number > 0) {
+        cout << "The number is positive." << endl;
+    } else {
+        cout << "The number is not positive." << endl;
+    }
 
-      return 0;
-  }
-
-// OUTPUT: The number is positive.
+    return 0;
+}
 ```
 
-**`else-if` Ladder**
+Output:
 
-```c
+```plaintext
+The number is positive.
+```
+
+#### **`else-if` Ladder**
+
+```cpp
 if (condition1) {
     // block 1
 } else if (condition2) {
@@ -793,29 +930,34 @@ if (condition1) {
 
 Example:
 
-```c
-  #include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
-  int main() {
-      int number = 0;
+int main() {
+    int number = 0;
 
-      if (number > 0) {
-          printf("The number is positive.\n");
-      } else if (number < 0) {
-          printf("The number is negative.\n");
-      } else {
-          printf("The number is zero.\n");
-      }
+    if (number > 0) {
+        cout << "The number is positive." << endl;
+    } else if (number < 0) {
+        cout << "The number is negative." << endl;
+    } else {
+        cout << "The number is zero." << endl;
+    }
 
-      return 0;
-  }
-
-// OUTPUT: The number is Zero.
+    return 0;
+}
 ```
 
-**Nested `if`**
+Output:
 
-```c
+```plaintext
+The number is zero.
+```
+
+#### **Nested `if`**
+
+```cpp
 if (condition1) {
     if (condition2) {
         // block
@@ -825,29 +967,34 @@ if (condition1) {
 
 Example:
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int number = 25;
 
     if (number > 0) {
         if (number < 100) {
-            printf("Number is positive and less than 100.\n");
+            cout << "Number is positive and less than 100." << endl;
         }
     }
 
     return 0;
 }
-
-// OUTPUT: Number is positive and less than 100.
 ```
 
-**Switch-case**
+Output:
+
+```plaintext
+Number is positive and less than 100.
+```
+
+#### **Switch-case**
 
 Used for multiple constant values.
 
-```c
+```cpp
 switch (expression) {
     case constant1:
         // code
@@ -862,52 +1009,57 @@ switch (expression) {
 
 Example:
 
-```c
-  #include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
-  int main() {
-      int day = 3;
+int main() {
+    int day = 3;
 
-      switch (day) {
-          case 1:
-              printf("Saturday\n");
-              break;
-          case 2:
-              printf("Sunday\n");
-              break;
-          case 3:
-              printf("Monday\n");  //this block is activated
-              break;
-          case 4:
-              printf("Tuesday\n");
-              break;
-          case 5:
-              printf("Wednesday\n");
-              break;
-          case 6:
-              printf("Thursday\n");
-              break;
-          case 7:
-              printf("Friday\n");
-              break;
-          default:
-              printf("Invalid day\n");
-              break;
-      }
+    switch (day) {
+        case 1:
+            cout << "Saturday" << endl;
+            break;
+        case 2:
+            cout << "Sunday" << endl;
+            break;
+        case 3:
+            cout << "Monday" << endl;  // this block is activated
+            break;
+        case 4:
+            cout << "Tuesday" << endl;
+            break;
+        case 5:
+            cout << "Wednesday" << endl;
+            break;
+        case 6:
+            cout << "Thursday" << endl;
+            break;
+        case 7:
+            cout << "Friday" << endl;
+            break;
+        default:
+            cout << "Invalid day" << endl;
+            break;
+    }
 
-      return 0;
-  }
+    return 0;
+}
+```
 
-// OUTPUT: Monday
+Output:
+
+```plaintext
+Monday
 ```
 
 ### **Looping Statements**
 
 Used to **repeat a block of code** multiple times.
 
-**`for` Loop**
+#### **`for` Loop**
 
-```c
+```cpp
 for (initialization; condition; increment) {
     // code block
 }
@@ -915,24 +1067,29 @@ for (initialization; condition; increment) {
 
 Example:
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     // Print numbers from 1 to 5
     for (int i = 1; i <= 5; i++) {
-        printf("%d ", i);
+        cout << i << " ";
     }
 
     return 0;
 }
-
-// OUTPUT: 1 2 3 4 5
 ```
 
-**`while` Loop**
+Output:
 
-```c
+```plaintext
+1 2 3 4 5
+```
+
+#### **`while` Loop**
+
+```cpp
 while (condition) {
     // code block
 }
@@ -940,55 +1097,65 @@ while (condition) {
 
 Example:
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int i = 1;
 
     // Print numbers from 1 to 5
     while (i <= 5) {
-        printf("%d ", i);
+        cout << i << " ";
         i++; // increment i
     }
 
     return 0;
 }
-
-// OUTPUT: 1 2 3 4 5
 ```
 
-**`do-while` Loop**
+Output:
 
-```c
+```plaintext
+1 2 3 4 5
+```
+
+#### **`do-while` Loop**
+
+```cpp
 do {
     // code block
 } while (condition);
 ```
 
-💡 Executes at least once even if condition is false.
+💡 Executes at least once even if the condition is false.
 
 Example:
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int i = 1;
 
     // Print numbers from 1 to 5 using do-while loop
     do {
-        printf("%d ", i);
+        cout << i << " ";
         i++; // increment i
     } while (i <= 5);
 
     return 0;
 }
-
-// OUTPUT: 1 2 3 4 5
 ```
 
-**Different between `while` vs `do...while`**
+Output:
+
+```plaintext
+1 2 3 4 5
+```
+
+#### **Difference between `while` and `do-while`**
 
 | **Feature**        | `while` **Loop**                                            | `do-while` **Loop**                                                          |
 | ------------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -1000,41 +1167,87 @@ int main() {
 
 Used to **control the flow** of loops and functions.
 
-| Keyword    | Description                                       |
-| ---------- | ------------------------------------------------- |
-| `break`    | Exits loop or switch block                        |
-| `continue` | Skips rest of the loop for current iteration      |
-| `goto`     | Jumps to a labeled part of the program (⚠️ avoid) |
-| `return`   | Exits from a function                             |
+| Keyword    | Description                                          |
+| ---------- | ---------------------------------------------------- |
+| `break`    | Exits loop or switch block                           |
+| `continue` | Skips the rest of the loop for the current iteration |
+| `goto`     | Jumps to a labeled part of the program (⚠️ avoid)    |
+| `return`   | Exits from a function                                |
 
-**Example (break):**
+#### **Example (break):**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-
     for (int i = 1; i <= 10; i++) {
         if (i == 5)
             break;
-        printf("%d ", i);     // Output: 1 2 3 4
+        cout << i << " ";
     }
+    return 0;
 }
 ```
 
-**Example (continue):**
+**Output:**
 
-```c
-#include <stdio.h>
+```plaintext
+1 2 3 4
+```
+
+#### **Example (continue):**
+
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-
     for (int i = 1; i <= 5; i++) {
         if (i == 3)
             continue;
-        printf("%d ", i);   // Output: 1 2 4 5
+        cout << i << " ";
     }
+    return 0;
 }
+```
+
+**Output:**
+
+```plaintext
+1 2 4 5
+```
+
+**Example (goto):**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+
+start:
+    cout << "Enter a positive number: ";
+    cin >> num;
+
+    if (num < 0) {
+        cout << "Negative number entered. Try again.\n";
+        goto start;  // jump to start label
+    }
+
+    cout << "You entered: " << num << endl;
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Enter a positive number: -5
+Negative number entered. Try again.
+Enter a positive number: 10
+You entered: 10
 ```
 
 <!-- START "Jump to Top"-->
@@ -1045,36 +1258,33 @@ int main() {
 
 ## Function
 
-A **function** in C is a **block of code** that performs a specific task. It helps in organizing code, avoiding repetition, and improving reusability.
+A **function** in C++ is a **block of code** that performs a specific task. It helps in organizing code, avoiding repetition, and improving reusability.
 
-> Real-life analogy to understand function:
+> **Real-life analogy to understand function:**
 >
-> > A function in C is like a coffee machine — you press a button (input), it brews coffee (process), and gives you a cup (output).
+> > A function in C++ is like a coffee machine — you press a button (input), it brews coffee (process), and gives you a cup (output).
 
 **Types of Functions**
 
-1. **User-defined Funtions:** Created by the programmer.
+1. **User-defined Functions**: Created by the programmer.
+2. **Built-in (Library) Functions**: Provided by C++ standard libraries.
 
-2. **Built-in (Library) Functions:** Provided by C libraries.
-
-### **User-defined Funtions:**
+### **User-defined Functions**
 
 **Syntax (Declaration + Definition + Call):**
 
-```c
+```cpp
 // ❏ Function Declaration
-returnType functionName (dataType1 parameter1, dataType2 parameter2, ...);
+returnType functionName(dataType1 parameter1, dataType2 parameter2, ...);
 
- // ❏ Function Definition
-returnType functionName (dataType1 parameter1, dataType2 parameter2, ...) {
-
-    // code... block
-
+// ❏ Function Definition
+returnType functionName(dataType1 parameter1, dataType2 parameter2, ...) {
+    // code block
     return value; // If the function returns a value
 }
 
 // ❏ Function Call
-functionName (arguments);
+functionName(arguments);
 ```
 
 **The Function Components are -**
@@ -1083,25 +1293,25 @@ functionName (arguments);
 - **Function Definition**
 - **Function Call**
 
-**Function Declaration:**  
-Tells the compiler about the function's name, return type, and parameters — before it is used.
+**Function Declaration:**
 
-```c
+It tells the compiler about the function's name, return type, and parameters — before it is used.
+
+```cpp
 int add(int a, int b);  // Declaration
 ```
 
-- Return type: `int`
+- **Return type**: `int`
+- **Function name**: `add`
+- **Parameters**: `int a, int b`
 
-- Function name: `add`
+_💡 Think of this as informing the compiler: "Hey! I’ll use a function like this later."_
 
-- Parameters: `int a, int b`
+**Function Definition:**
 
-_💡 Think of this as informing the compiler: “Hey! I’ll use a function like this later.”_
-
-**Function Definition**  
 Contains the actual **code (body)** that runs when the function is called.
 
-```c
+```cpp
 int add(int a, int b) {
     return a + b;
 }
@@ -1109,22 +1319,23 @@ int add(int a, int b) {
 
 - This is where the logic of **addition** is implemented.
 
-**Function Call**
+**Function Call:**
 
 Used to **invoke/execute** the function and get the result.
 
-```c
+```cpp
 int result = add(3, 5);  // Function call
 ```
 
-- Passes arguments `3` and `5` to the function
+- Passes arguments `3` and `5` to the function.
+- Stores the returned value in `result`.
 
-- Stores the returned value in `result`
+### **Full Example with All Components**
 
-**Full Example with All Components**
+```cpp
+#include <iostream>
 
-```c
-#include <stdio.h>
+using namespace std;
 
 // 1. Function Declaration
 int add(int a, int b);
@@ -1132,7 +1343,7 @@ int add(int a, int b);
 int main() {
     // 3. Function Call
     int sum = add(10, 20);
-    printf("Sum = %d\n", sum);
+    cout << "Sum = " << sum << endl;
     return 0;
 }
 
@@ -1144,17 +1355,19 @@ int add(int a, int b) {
 
 **Output:**
 
-```markdown
+```plaintext
 Sum = 30
 ```
 
 **Example (No return, no parameters):**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+
+using namespace std;
 
 void greet() {
-    printf("Hello, World!\n");
+    cout << "Hello, World!" << endl;
 }
 
 int main() {
@@ -1165,14 +1378,16 @@ int main() {
 
 **Output:**
 
-```markdown
+```plaintext
 Hello, World!
 ```
 
 **Example (With return, with parameters):**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+
+using namespace std;
 
 int add(int a, int b) {
     return a + b;
@@ -1180,26 +1395,28 @@ int add(int a, int b) {
 
 int main() {
     int sum = add(4, 5);
-    printf("Sum = %d\n", sum);
+    cout << "Sum = " << sum << endl;
     return 0;
 }
 ```
 
 **Output:**
 
-```markdown
+```plaintext
 Sum = 9
 ```
 
 **Example (Function Declaration (Prototype)):**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+
+using namespace std;
 
 int multiply(int, int); // function declaration
 
 int main() {
-    printf("Result = %d\n", multiply(3, 4));
+    cout << "Result = " << multiply(3, 4) << endl;
     return 0;
 }
 
@@ -1210,20 +1427,24 @@ int multiply(int x, int y) {
 
 **Output:**
 
-```markdown
+```plaintext
 Result = 12
 ```
 
-**Recursive Function**
+### **Recursive Function**
 
-A recursive function is a function that calls itself to solve smaller versions of a problem.
+A **recursive function** is a function that calls itself to solve smaller versions of a problem.
 
-> Real-life analogy to understand function:
+> **Real-life analogy to understand recursion:**
 >
 > > Like opening a set of nested boxes — each box opens the next, until the smallest box is reached.
 
-```c
-#include <stdio.h>
+**Example:**
+
+```cpp
+#include <iostream>
+
+using namespace std;
 
 int factorial(int n) {
     if (n == 0) return 1;
@@ -1231,18 +1452,18 @@ int factorial(int n) {
 }
 
 int main() {
-    printf("Factorial of 5 = %d\n", factorial(5));
+    cout << "Factorial of 5 = " << factorial(5) << endl;
     return 0;
 }
 ```
 
 **Output:**
 
-```markdown
+```plaintext
 Factorial of 5 = 120
 ```
 
-**Return Types in C Functions:**
+**Return Types in C++ Functions:**
 
 | Return Type | Meaning             | Example           |
 | ----------- | ------------------- | ----------------- |
@@ -1253,12 +1474,12 @@ Factorial of 5 = 120
 
 **Parameter Types:**
 
-| Type               | Example                 | Description                      |
-| ------------------ | ----------------------- | -------------------------------- |
-| No Parameters      | `void greet(void)`      | Takes no input                   |
-| With Parameters    | `int sum(int a, int b)` | Takes input values               |
-| Default (Not in C) | ❌                      | C doesn’t support default params |
-| Variable Arguments | `int printf(...)`       | Use `stdarg.h`                   |
+| Type                 | Example                 | Description                        |
+| -------------------- | ----------------------- | ---------------------------------- |
+| No Parameters        | `void greet(void)`      | Takes no input                     |
+| With Parameters      | `int sum(int a, int b)` | Takes input values                 |
+| Default (Not in C++) | ❌                      | C++ doesn’t support default params |
+| Variable Arguments   | `int printf(...)`       | Use `stdarg.h`                     |
 
 **Function Categories:**
 
@@ -1271,302 +1492,160 @@ Factorial of 5 = 120
 
 ### **Built-in (Library) Functions:**
 
-These are pre-defined functions provided by C's standard library.
+These are pre-defined functions provided by C++'s standard library.
 
-Example: `printf()`, `scanf()`, `strlen()`, `malloc()`, etc.
+Example: `cout`, `cin`, `strlen()`, `malloc()`, etc.
 
 **Header Files:**
 
 You don't need to define these functions, but you must include the appropriate header files.
 
-_Example: `#include <stdio.h>` (for `printf()`)._
+Some Common Header Files:
 
-Some Header File List:
+- **`<iostream>`**: For input-output.
 
-- `stdio.h` (Standard input-output.header):
+  - Includes: `cout`, `cin`, `endl`
 
-  - Inside of Header: `printf()`, `scanf()`, `getchar()`, `putchar()`, `gets()`, `puts()`, `fopen()`, `fclose()`, `feof()`
+- **`<cmath>`**: For mathematical functions.
 
-- `conio.h` (Console input-output.header) - Contains declaration for console I/O
+  - Includes: `sqrt()`, `pow()`, `sin()`, `cos()`, `tan()`
 
-  - Inside of Header: `clrscr()`, `getch()`, `exit()`
+- **`<cstring>`**: For string manipulation.
 
-- `ctype.h` (Character Type.header) - Used for Character-handling.
-
-  - Inside of Header: `isupper()`, `islower()`, `isalpha()`
-
-- `math.h` (Mathematics.header) - Declares mathematical functions and macros.
-
-  - Inside of Header: `pow()`, `sqrt()`, `sin()`, `cos()`, `tan()`, `log()`
-
-- `stdlib.h` (Standard Library.header) - For number conversion, storage allocation
-
-  - Inside of Header: `rand()`, `srand()`
-
-- `string.h` (String.header) - Used for manipulate strings.
-
-  - Inside of Header: `strlen()`, `strctp()`, `strcmp()`, `strcat()`, `strlwr()`, `strupr()`,`strrev()`
+  - Includes: `strlen()`, `strcpy()`, `strcmp()`, `strcat()`
 
 **Example: `sizeof()`**
 
-Determines the size of a variable, data type, or expression in bytes. It’s useful for understanding memory usage and performing size-based operations.
+```cpp
+#include <iostream>
+using namespace std;
 
-```c
-char a; int b; float c; double d;
+int main() {
+    char a;
+    int b;
+    float c;
+    double d;
 
-printf("Size of Character is: %d \n", sizeof(a));
-printf("Size of Integer is: %d \n", sizeof(b));
-printf("Size of Float is: %d \n", sizeof(c));
-printf("Size of Double is: %d  \n", sizeof(d));
-```
-
-**Example (Character): `toupper();` `tolower();`**
-
-Convert a lowercase letter to uppercase or vice versa.
-
-```c
-#include <stdio.h>
-
-int main()
-{
-    char lower, upper;
-
-    printf("Enter any lowercase letter: ");
-    scanf("%c", &lower);
-
-    upper = toupper(lower);
-    printf("The uppercase letter is: %c \n", upper);
-    return 0;
+    cout << "Size of Character is: " << sizeof(a) << " bytes" << endl;
+    cout << "Size of Integer is: " << sizeof(b) << " bytes" << endl;
+    cout << "Size of Float is: " << sizeof(c) << " bytes" << endl;
+    cout << "Size of Double is: " << sizeof(d) << " bytes" << endl;
+    return 0;
 }
-
-// Similarly Replace: tolower();
 ```
 
-**Example (Mathematics): `abs()`**
-
-Calculates the absolute value of a numerical expression. Returns the positive equivalent of a negative number, or the original value if the number is already positive.
-
-```c
-int x= -12;
-x = abs(-12);
-printf("%d \n", x);  //result: 12
-```
-
-**Example (Mathematics): `sqrt()`**
-
-Calculates the square root of a non-negative floating-point number. Returns the positive square root of the given number.
-
-```c
-int x=4;
-double result = sqrt(x);
-printf("%.2lf \n", result); //result: 2
-```
-
-**Example (Mathematics): `pow()`**
-
-Calculates the power of a number. Raises a base number to a given exponent.
-
-```c
-double x = pow(4,2);    //formula: 4^2=16
-printf("%.2lf \n", x);  //result: 16
-```
-
-**Example (Mathematics): `log()`**
-
-The `log()` function in C is used to calculate the natural logarithm of a positive number. The natural logarithm is the logarithm to the base e, where e is approximately 2.71828.
-
-```c
-int x=10.5;
-double result = log(x);
-printf("%.2lf \n", result); //result: 2.30
-```
-
-**Example (Mathematics): `log10()`**
-
-The `log10()` function in C is used to calculate the base-10 logarithm of a positive number. This means it finds the power to which 10 must be raised to get the given number.
-
-```c
-int x=10.5;
-double result = log10(x);
-printf("%.2lf \n", result); //result: 1.00
-```
-
-**Example (Mathematics): `exp()`**
-
-Calculates the exponential function of a number. Finds the value of e raised to the power of the given number, where e is approximately 2.71828.
-
-```c
-int x=5;
-double result = exp(x);
-printf("%.2lf \n", result); //result: 148.41
-```
-
-**Example (Mathematics): `sin()`, `cos()`, `sec()`, `cosec()`, `tan()`, `cot()`**
-
-Calculates the trigonometric (functions sine/cosine/tangent/secant/cosecant/cotangent) of an angle expressed in radians.
-
-```c
-int x=46;
-double result = sin(x);
-printf("%.2lf \n", result); //result: 0.90
-
-// Similarly Replace: sin() | sec(); | cosec(); | tan(); | cot();
-```
-
-**Example (Mathematics): `round()`**
-
-Calculate round or fraction-less number from any value from a mathematical equation
-
-Here, 5.36=5, 5.56=6 and 5.99=6
-
-```c
-int x=4.6;
-double result = sin(x);
-printf("%.2lf \n", result); //result: 4.00
+**Output:**
 
 ```
-
-**Example (Mathematics): `ceil()`**
-
-```plaintext
---|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--
-
- -7 -6 -5 -4 -3 -2 -1  0  1  2  3  4  5  6  7
-```
-
-For non-integers, `Ceiling - Floor = 1`
-
-Ceiling rounds up:
-⌈5.36⌉ = 6, ⌈5.12⌉ = 6, ⌈5.99⌉ = 6
-
-```c
-int x=4.6;
-double result = ceil(x);
-printf("%.2lf \n", result); //result: 5.00
-```
-
-**Example (Mathematics): `floor()`**
-
-```plaintext
---|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--
-
- -7 -6 -5 -4 -3 -2 -1  0  1  2  3  4  5  6  7
-```
-
-For non-integers, `Ceiling - Floor = 1`
-
-Floor rounds down:
-⌊5.36⌋ = 5, ⌊5.56⌋ = 5, ⌊5.99⌋ = 5
-
-```c
-int x=4.6;
-double result = floor0(x);
-printf("%.2lf \n", result); //result: 4.00
-```
-
-**Example (Mathematics): `trunc()`**;
-
-Convert `Integer` from `float` or fraction number.
-
-```C
-int x=6.6;
-double result = sin(x);
-printf("%.2lf \n", result); //result: 6.00
-```
-
-**Example (Mathematics): `rand()`**
-
-Create Random numbers.
-
-```C
-#include <stdio.h>
-#include <stdlib.h>  //Using header file for random numbers
-
-int main()
-{
-    for (int i=1; i<=5; i++){
-        int randonNum = rand(); //Random numbers create
-        printf(" Random Number: %d \n", randonNum);
-    }
-    return 0;
-}
+Size of Character is: 1 bytes
+Size of Integer is: 4 bytes
+Size of Float is: 4 bytes
+Size of Double is: 8 bytes
 ```
 
 **Example (String): `strlen()`**
 
-Calculate the String length.
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
 
-```c
-char name [] = "Nazrull";
-int len = strlen(name);
-printf("Length: %d", len);
+int main() {
+    char name[] = "Nazrull";
+    int len = strlen(name);
+    cout << "Length: " << len << endl;
+    return 0;
+}
 ```
 
-**Example (String): `strcpy()`**
+**Output:**
 
-Copy string Using function.
-
-```c
-char source [] = "Michael Scofield";
-char destination [100];
-strcpy(destination, source);
-printf("Check 'strcpy()' for 'destination': %s \n", destination);
+```
+Length: 7
 ```
 
-**Example (String): `strcat()`**
+**Example (Random Number Generator): `rand()`**
 
-String Concatenation by using function. (Adding Every Characters)
+```cpp
+#include <iostream>
+#include <cstdlib>  // Using header file for random numbers
 
-```c
-char name1 [] = "Michael ";
-char name2 [] = "Scofield";
-strcat(name1, name2);
-printf("Print the Concatenation: %s \n", name1);
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        int randomNum = rand(); // Random numbers generator
+        cout << "Random Number: " << randomNum << endl;
+    }
+    return 0;
+}
 ```
 
-**Example (String): `strcmp()`**
+**Output:**
 
-Compare different different String for check they equal or not.
-
-```c
-char name1 [50] = "Michael ";
-char name2 [] = "Scofield";
-int result = strcmp(name1, name2); //If both string are same then return '0'
-if(result == 0)
-    printf("String are equal");
-else
-    printf("String aren't equal");
+```
+Random Number 1: 1804289383
+Random Number 2: 846930886
+Random Number 3: 1681692777
 ```
 
-**Example (String): `strrev()`**
+(Note: Output: will vary every time if seeded using `srand(time(0));`)
 
-Reverse String from given string.
+**Example (String Concatenation): `strcat()`**
 
-```c
-char name [] = "Michael Scofield";
-strrev(name); //Only Support One parameter
-printf("The reverse string is: %s", name);
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    char name1[20] = "Michael ";
+    char name2[] = "Scofield";
+    strcat(name1, name2);
+    cout << "Concatenated Name: " << name1 << endl;
+    return 0;
+}
 ```
 
-**Example (String): `strupr()`**
+**Output:**
 
-For UpperCase Letter from given string.
-
-```c
-char name [] = "Michael Scofield";
-strupr(name); //Only Support One parameter
-printf("The UpperCase string is: %s", name);
+```
+Concatenated Name: Michael Scofield
 ```
 
-**Example (String): `strlwr()`**
+**Example (String Comparison): `strcmp()`**
 
-For Lowercase Letter from given string.
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
 
-```c
-char name [] = "Michael Scofield";
-strlwr(name); //Only Support One parameter
-printf("The Lowercase string is: %s", name);
+int main() {
+    char name1[] = "Michael";
+    char name2[] = "Scofield";
+
+    int result = strcmp(name1, name2);
+
+    if (result == 0)
+        cout << "Strings are equal" << endl;
+    else
+        cout << "Strings aren't equal" << endl;
+
+    return 0;
+}
 ```
+
+**Output:**
+
+```
+Strings aren't equal
+```
+
+**Example (Mathematical Operations)**
+
+**`abs()`**, **`sqrt()`**, **`pow()`**, **`log()`** etc., are similarly available in the `<cmath>` header for mathematical operations.
+
+This C++ version preserves the same functionality and syntax from the C code, but uses C++-specific libraries like `<iostream>` for input/output and `<cstring>` for string manipulations.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -1576,44 +1655,50 @@ printf("The Lowercase string is: %s", name);
 
 ## String
 
-In C, a string is a sequence of characters terminated by a null character (`'\0'`).
-Unlike some high-level languages, **C does not have a built-in `string` data type.**
-Strings are implemented as arrays of characters.
+In programming, a string is a sequence of characters used to represent text.
 
-**Declaration of String**
+In C++, we can work with **two types of strings**:
 
-```c
-char str[10]; // Can store up to 9 characters + 1 null character '\0'
+1. **C-style strings** – like in C, implemented as character arrays ending with `'\0'`.
+2. **C++ `std::string`** – part of the C++ Standard Library, safer and easier to use.
+
+### C-style Strings
+
+**Declaration:**
+
+```cpp
+char str[10]; // Can store up to 9 characters + null terminator '\0'
 ```
 
-### Ways to Initialize a String
+### Ways to Initialize
 
 **Using String Literal**
 
-```c
+```cpp
 char str[] = "Hello";
 ```
 
-Automatically appends `\0` at the end.
+Automatically appends `'\0'` at the end.
 
 **Using Character Array**
 
-```c
+```cpp
 char str[] = {'H', 'e', 'l', 'l', 'o', '\0'};
 ```
 
-**Example: Basic String Input and Output**
+**Example: Basic C-style String Input and Output:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     char name[20];
 
-    printf("Enter your name: ");
-    scanf("%s", name);  // Reads a single word (no spaces)
+    cout << "Enter your name: ";
+    cin >> name;  // Reads until first space
 
-    printf("Hello, %s!\n", name);
+    cout << "Hello, " << name << "!" << endl;
 
     return 0;
 }
@@ -1621,24 +1706,24 @@ int main() {
 
 **Output:**
 
-```c
+```
 Enter your name: Alice
 Hello, Alice!
 ```
 
-**Example: Using `gets()` and `puts()` for Full Line Input**
+**Example: Using `cin.getline()` for Full Line Input**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     char fullName[50];
 
-    printf("Enter your full name: ");
-    gets(fullName);  // Reads full line including spaces (unsafe)
+    cout << "Enter your full name: ";
+    cin.getline(fullName, 50);  // Safe input with spaces
 
-    puts("Your name is:");
-    puts(fullName);
+    cout << "Your name is: " << fullName << endl;
 
     return 0;
 }
@@ -1646,29 +1731,41 @@ int main() {
 
 **Output:**
 
-```c
+```
 Enter your full name: Alice Johnson
-Your name is:
-Alice Johnson
-
+Your name is: Alice Johnson
 ```
 
-> [!WARNING]
->
-> `gets()` is unsafe and deprecated in modern C. Use `fgets()` instead.
+### C++ `std::string`
 
-**Example: Using `fgets()` Safely**
+**Declaration and Initialization**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main() {
-    char fullName[50];
+    string name = "Hello";
+    cout << name << endl;
+    return 0;
+}
+```
 
-    printf("Enter your full name: ");
-    fgets(fullName, sizeof(fullName), stdin);  // Safe input with spaces
+**Example: String Input and Output: Using `std::string`**
 
-    printf("Hello, %s", fullName);
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name;
+
+    cout << "Enter your name: ";
+    cin >> name;  // Reads a single word
+
+    cout << "Hello, " << name << "!" << endl;
 
     return 0;
 }
@@ -1676,20 +1773,60 @@ int main() {
 
 **Output:**
 
-```c
-Enter your full name: Alice Johnson
-Hello, Alice Johnson
+```
+Enter your name: Alice
+Hello, Alice!
 ```
 
-### String Functions (`<string.h>`)
+\*\*Example: Full Line Input Using `getline()`
 
-| Function        | Description                      | Example                 |
-| --------------- | -------------------------------- | ----------------------- |
-| `strlen(s)`     | Returns length                   | `strlen("Hi") → 2`      |
-| `strcpy(d, s)`  | Copies string `s` into `d`       | `strcpy(dest, src)`     |
-| `strcat(d, s)`  | Concatenates `s` to `d`          | `strcat(dest, src)`     |
-| `strcmp(s1,s2)` | Compares two strings             | Returns 0 if equal      |
-| `strrev(s)`     | Reverses a string (non-standard) | `strrev("abc") → "cba"` |
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string fullName;
+
+    cout << "Enter your full name: ";
+    getline(cin, fullName);  // Reads full line including spaces
+
+    cout << "Hello, " << fullName << "!" << endl;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Enter your full name: Alice Johnson
+Hello, Alice Johnson!
+```
+
+### Common String Functions
+
+**For C-style strings (`<cstring>`) functions**
+
+| Function        | Description                      | Example                    |
+| --------------- | -------------------------------- | -------------------------- |
+| `strlen(s)`     | Returns length                   | `strlen("Hi") → 2`         |
+| `strcpy(d, s)`  | Copies string `s` to `d`         | `strcpy(dest, src)`        |
+| `strcat(d, s)`  | Concatenates `s` to `d`          | `strcat(dest, src)`        |
+| `strcmp(s1,s2)` | Compares two strings             | `strcmp("abc", "abc") → 0` |
+| `strrev(s)`     | Reverses a string (non-standard) | `strrev("abc") → "cba"`    |
+
+**For `std::string` (more powerful)**
+
+| Operation         | Example                    | Output:          |
+| ----------------- | -------------------------- | ---------------- |
+| Length            | `name.length()`            | Length of string |
+| Concatenation     | `s1 + s2`                  | Combines strings |
+| Comparison        | `s1 == s2`                 | `true/false`     |
+| Access character  | `name[0]`                  | First letter     |
+| Substring         | `name.substr(0, 5)`        | Partial string   |
+| Find substring    | `name.find("John")`        | Index or `npos`  |
+| Replace substring | `name.replace(0, 5, "Hi")` | Replace part     |
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -1699,34 +1836,32 @@ Hello, Alice Johnson
 
 ## Array
 
-An **array** in C is a **collection of elements** of the same data type stored in **contiguous memory locations**.
+An **array** in C++ is a **collection of elements** of the same data type stored in **contiguous memory locations**.
 
-> Real-life analogy to understand array:
->
-> > An array is like a bookshelf, where each shelf slot holds one book and you can find any book by its position number.
+> **Real-life analogy:**  
+> An array is like a bookshelf. Each shelf (array index) holds one book (element), and you can access any book by its position (index).
 
 **Syntax:**
 
-```c
+```cpp
 data_type array_name[array_size];
 ```
 
-**Explanation:**
-
-- **`data_type`**: The data type of the array elements (e.g., `int`, `float`, `char`).
-- **`array_name`**: The name of the array.
-- **`array_size`**: The number of elements the array can hold.
+- `data_type`: Type of elements (e.g., `int`, `float`, `char`)
+- `array_name`: Name of the array
+- `array_size`: Number of elements
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int numbers[5] = {10, 20, 30, 40, 50};
 
-    printf("First number: %d\n", numbers[0]);  // index 0
-    printf("Third number: %d\n", numbers[2]);  // index 2
+    cout << "First number: " << numbers[0] << endl;
+    cout << "Third number: " << numbers[2] << endl;
 
     return 0;
 }
@@ -1734,68 +1869,50 @@ int main() {
 
 **Output:**
 
-```markdown
+```
 First number: 10
 Third number: 30
 ```
 
-> [!NOTE]
->
-> - **Index starts at `0`:** The first element is accessed as `array[0]`
-> - **Fixed size:** The size of the array must be defined at the time of declaration
-> - **Same type:** All elements must be of the same type (e.g., all `int`, `float`, etc.)
+**Array Declaration, Initialization & Access**
 
-**Array Declaration, Initialization and Accessing:**
-
-```c
-// Declaration and Initialization
+```cpp
+// Array Declaration, Initialization
 int numbers[5] = {10, 20, 30, 40, 50};
 
-// Accessing elements
-printf("%d", numbers[0]);  // Output: 10
-printf("%d", numbers[2]);  // Output: 30
+// Array Access
+cout << numbers[0];  // Output: 10
+cout << numbers[2];  // Output: 30
 ```
 
 **Array Accessing Diagram:**
 
-```plaintext
+```
 Index:     0    1    2    3    4
 Value:    10   20   30   40   50
            ↑         ↑
      numbers[0]  numbers[2]
 ```
 
-**Types of Arrays**
+**Types of Arrays in C++**
 
-1. Linear or 1D Arrays
+1. Linear / 1D Arrays
 2. Multi-Dimensional:
-   1. Matrix or 2D Array
-   2. 3D Array
+
+   - 2D Array (Matrix)
+   - 3D Array
 
 ### Linear or 1D Array
 
-A single-dimensional array is the simplest form of an array. It is a **linear collection of elements** of the same data type, accessible using a single index.
-
-**Syntax:**
-
-```c
-datatype array_name [array_size];             // array declaration
-
-datatype array_name [array_size] = {value};  // array initialization
-
-array_name [index];                          // accessing array elements
-```
-
-**Example (1D Array):**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int numbers[5] = {10, 20, 30, 40, 50};
 
     for (int i = 0; i < 5; i++) {
-        printf("%d ", numbers[i]);
+        cout << numbers[i] << " ";
     }
 
     return 0;
@@ -1804,63 +1921,33 @@ int main() {
 
 **Output:**
 
-```markdown
+```
 10 20 30 40 50
 ```
 
-### **Matrix or 2D Arrays**
+### Matrix or 2D Array
 
-A two-dimensional array in C is an array of arrays, which can be visualized as a matrix with rows and columns.
-
-**Syntax:**
-
-```c
-// array declaration
-datatype array_name [rows] [columns];
-
-// array initialization
-datatype array_name [row_size] [column_size] = {
-
-    {column1, column2, column3},   // total: 2 row and 3 columns
-    {column1, column2, column3}
-};
-
-// accessing array elements
-datatype variable_name = array_name [rows] [columns];
-```
-
-**Explanation:**
-
-- **`type`**: The data type of the array elements (e.g., `int`, `float`).
-- **`rows`**: The number of rows in the array.
-- **`columns`**: The number of columns in the array.
-
-**Example:**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-
-    // 2D Array Declaration and Initialization
     int matrix[3][4] = {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
         {9, 10, 11, 12}
     };
 
-    // Accessing a Value from a Specific Index
-    int element = matrix[1][2];  // 2nd row, 3rd column → value is 7
+    int element = matrix[1][2]; // 2nd row, 3rd col
 
-    printf("Access Single Element: %d\n\n", element);
+    cout << "Access Single Element: " << element << endl << endl;
 
-    // Printing all elements of the 2D array
-    printf("Matrix Elements:\n");
-    for (int i = 0; i < 3; i++) {          // rows
-        for (int j = 0; j < 4; j++) {      // columns
-            printf("%2d ", matrix[i][j]);
+    cout << "Matrix Elements:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << matrix[i][j] << " ";
         }
-        printf("\n");
+        cout << endl;
     }
 
     return 0;
@@ -1869,7 +1956,7 @@ int main() {
 
 **Output:**
 
-```markdown
+```
 Access Single Element: 7
 
 Matrix Elements:
@@ -1878,64 +1965,14 @@ Matrix Elements:
 9 10 11 12
 ```
 
-**Visual Representation:**
+### 3D Array or Multi-dimensional
 
-```plaintext
-      Columns →
-        0   1   2   3
-Rows ↓
-  0     1   2   3   4
-  1     5   6   7   8
-  2     9  10  11  12
-```
-
-### Multi-dimensional or 3D Array
-
-A three-dimensional array can be visualized as an array of 2D arrays. It's like having multiple matrices stacked together.
-
-**Syntax:**
-
-```c
-// array declaration
-datatype array_name [size1] [size2] [size3];
-
-// array initialization
-datatype array_name [numOf_2D_Array] [rowSize_each2D] [columnSize_each2D] = {
-
-    {
-        {column1, column2, column3},   // total: 2 row and 3 columns
-        {column1, column2, column3}
-    },
-    {
-        {column1, column2, column3},   // total: 2 row and 3 columns
-        {column1, column2, column3}
-    }
-};
-
-// accessing array elements
-datatype variable_name = array_name [size1] [size2] [size3];
-```
-
-**Explanation:**
-
-- **`size1`**: The size of the first dimension (number of 2D arrays).
-- **`size2`**: The size of the second dimension (number of rows in each 2D array).
-- **`size3`**: The size of the third dimension (number of columns in each 2D array).
-
-> [!NOTE]
->
-> - **Fixed Size:** The size of each dimension must be specified at compile time (except for the first dimension, which can sometimes be omitted in the declaration if the array is initialized).
-> - **Memory Layout:** Multi-dimensional arrays are stored in a contiguous block of memory. For a 2D array, the elements are stored row by row.
-> - **Access:** Elements are accessed using multiple indices, one for each dimension.
-
-**Example:**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-
-    int arr[2][3][4] = {  // A 3D array with 2 "planes," each with 3 rows & 4 columns.
+    int arr[2][3][4] = {
         {
             {1, 2, 3, 4},
             {5, 6, 7, 8},
@@ -1948,22 +1985,17 @@ int main() {
         }
     };
 
-    // Accessing Value from Specific Index
-    int element = arr[1][2][3];
-    // Accesses the element in the 2nd plane, 3rd row, 4th column (value is 24)
+    cout << "Access Single Element: " << arr[1][2][3] << endl << endl;
 
-    printf("Access Single Element: %d\n\n", element); //
-
-    // Printing all elements of the 3D array
     for (int i = 0; i < 2; i++) {
-        printf("Plane %d:\n", i);
+        cout << "Plane " << i << ":" << endl;
         for (int j = 0; j < 3; j++) {
             for (int k = 0; k < 4; k++) {
-                printf("%2d ", arr[i][j][k]);
+                cout << arr[i][j][k] << " ";
             }
-            printf("\n");
+            cout << endl;
         }
-        printf("\n");
+        cout << endl;
     }
 
     return 0;
@@ -1972,7 +2004,7 @@ int main() {
 
 **Output:**
 
-```markdown
+```
 Access Single Element: 24
 
 Plane 0:
@@ -1986,54 +2018,87 @@ Plane 1:
 21 22 23 24
 ```
 
-### Array Initialization
+### **Array Initialization Methods:**
 
-| Method                         | Syntax Example                   |
-| ------------------------------ | -------------------------------- |
-| Full initialization            | `int arr[3] = {1, 2, 3};`        |
-| Partial initialization         | `int arr[3] = {1}; // {1, 0, 0}` |
-| Zero initialization            | `int arr[3] = {0};`              |
-| Size inferred from initializer | `int arr[] = {1, 2, 3, 4};`      |
+| Method                 | Syntax Example                   |
+| ---------------------- | -------------------------------- |
+| Full initialization    | `int arr[3] = {1, 2, 3};`        |
+| Partial initialization | `int arr[3] = {1}; // {1, 0, 0}` |
+| Zero initialization    | `int arr[3] = {0};`              |
+| Size inferred          | `int arr[] = {1, 2, 3, 4};`      |
 
-**Example (Input from User):**
+**Example: Input from User**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int a[5];
+    cout << "Enter 5 numbers: ";
 
-    printf("Enter 5 numbers: ");
     for (int i = 0; i < 5; i++) {
-        scanf("%d", &a[i]);
+        cin >> a[i];
     }
 
-    printf("You entered: ");
+    cout << "You entered: ";
     for (int i = 0; i < 5; i++) {
-        printf("%d ", a[i]);
+        cout << a[i] << " ";
     }
 
     return 0;
 }
 ```
 
-**Output (if input = 1 2 3 4 5):**
+**Output: (if input = 1 2 3 4 5):**
 
-```markdown
+```
 Enter 5 numbers: You entered: 1 2 3 4 5
 ```
 
-### Accessing and Modifying Array Elements
+**Example: Modifying Array Elements**
 
-```c
-arr[2] = 100;  // modifies the 3rd element
-int x = arr[0];  // gets the 1st element
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {5, 10, 15, 20, 25};
+
+    // Print original array
+    cout << "Original Array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Modify elements
+    arr[0] = 100; // change first element
+    arr[3] = 400; // change fourth element
+
+    // Print modified array
+    cout << "Modified Array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
 ```
 
-**Example (Sum of Array Elements):**
+**Output:**
 
-```c
-#include <stdio.h>
+```
+Original Array: 5 10 15 20 25
+Modified Array: 100 10 15 400 25
+```
+
+**Example: Sum of Array Elements**
+
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int a[5] = {1, 2, 3, 4, 5};
@@ -2043,50 +2108,35 @@ int main() {
         sum += a[i];
     }
 
-    printf("Sum = %d\n", sum);
+    cout << "Sum = " << sum << endl;
     return 0;
 }
 ```
 
 **Output:**
 
-```markdown
+```
 Sum = 15
 ```
 
-### Passing Arrays to Functions
+**Example: Passing Arrays to Functions**
 
-In C, when you pass an **array to a function**, **you’re passing the address of the first element** — not the entire array.
-
-This means that **any changes made to the array inside the function affect the original array**.
-
-**Syntax**
-
-```c
-// Function declaration
-void displayArray(int arr[], int size);
-
-// Function call
-displayArray(arr, size);
-```
-
-**Example:**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 void displayArray(int arr[], int size) {
-    for(int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
     }
-    printf("\n");
+    cout << endl;
 }
 
 int main() {
     int nums[] = {10, 20, 30, 40, 50};
     int length = sizeof(nums) / sizeof(nums[0]);
 
-    printf("Array elements: ");
+    cout << "Array elements: ";
     displayArray(nums, length);
 
     return 0;
@@ -2095,32 +2145,26 @@ int main() {
 
 **Output:**
 
-```c
+```
 Array elements: 10 20 30 40 50
 ```
 
-### **Array of Pointers**
+**Example: Array of Pointers**
 
-An array of pointers holds memory addresses, and each element of the array is a pointer to a variable or another array.
-
-**Example:**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-
     int numbers[] = {10, 20, 30, 40, 50};
-    int *ptrs[5]; // Array of 5 integer pointers
+    int* ptrs[5];
 
-    // Assign pointers to elements of the numbers array
     for (int i = 0; i < 5; i++) {
         ptrs[i] = &numbers[i];
     }
 
-    // Access elements using pointers
     for (int i = 0; i < 5; i++) {
-        printf("Element %d: %d\n", i + 1, *ptrs[i]);
+        cout << "Element " << i + 1 << ": " << *ptrs[i] << endl;
     }
 
     return 0;
@@ -2129,7 +2173,7 @@ int main() {
 
 **Output:**
 
-```markdown
+```
 Element 1: 10
 Element 2: 20
 Element 3: 30
@@ -2137,29 +2181,27 @@ Element 4: 40
 Element 5: 50
 ```
 
-**Multi-Dimensional Arrays of Pointers**  
-These arrays are arrays of pointers that can be used to manage more complex data structures, such as arrays of arrays where each sub-array can be of different sizes.
+**Example: 2D Array of Pointers**
 
-**Example:**
+```cpp
+#include <iostream>
+using namespace std;
 
-```c
-#include <stdio.h>
 int main() {
+    int numbers[3][4] = {{1, 2, 3, 4},
+                         {5, 6, 7, 8},
+                         {9, 10, 11, 12}};
+    int* ptrs[3][4];
 
-    int numbers[3][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-    int *ptrs[3][4];
-
-    // Assign pointers to elements of the numbers array
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
             ptrs[i][j] = &numbers[i][j];
         }
     }
 
-    // Access elements using pointers
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
-            printf("Element [%d][%d]: %d\n", i, j, *ptrs[i][j]);
+            cout << "Element [" << i << "][" << j << "]: " << *ptrs[i][j] << endl;
         }
     }
 
@@ -2169,18 +2211,10 @@ int main() {
 
 **Output:**
 
-```markdown
+```
 Element [0][0]: 1
 Element [0][1]: 2
-Element [0][2]: 3
-Element [0][3]: 4
-Element [1][0]: 5
-Element [1][1]: 6
-Element [1][2]: 7
-Element [1][3]: 8
-Element [2][0]: 9
-Element [2][1]: 10
-Element [2][2]: 11
+...
 Element [2][3]: 12
 ```
 
@@ -2192,52 +2226,45 @@ Element [2][3]: 12
 
 ## Pointers
 
-A **pointer** is a **variable that stores the address of another variable**.
+A **pointer** is a variable that stores the **memory address** of another variable.
 
 **Syntax:**
 
-```c
+```cpp
 data_type *pointer_name;
 ```
 
-- The **`data_type`** of the variable that the pointer will point to.
+- `data_type` — type of data the pointer points to
+- `*` — denotes it’s a pointer
+- `pointer_name` — name of the pointer variable
 
-- `*` indicates it’s a pointer.
+**Example (Declarations):**
 
-- `pointer_name` stores the address of an integer variable.
-
-**Example:**
-
-```c
-int *pointer_name;    // Pointer to an integer
-char *pointer_name;   // Pointer to a character
-float *pointer_name;  // Pointer to a float
+```cpp
+int *ptrInt;      // Pointer to int
+char *ptrChar;    // Pointer to char
+float *ptrFloat;  // Pointer to float
 ```
 
-Instead of holding a data value, it holds the **memory address** of a variable. Here,
+### Assigning a Value to a Pointer
 
-- `&` symbol is used to get the address of the variable.
-- `*` symbol is used to get the value of the variable that the pointer is pointing to.
-
-**Assigning a Value to a Pointer**
-
-Pointers are assigned the address of a variable using the address-of operator (`&`).
+You can assign the **address of a variable** using the **address-of operator (`&`)**.
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
     int a = 10;
     int *p;
-    p = &a;  // Assign the address of 'a' to pointer 'p'
+    p = &a;
 
-    // Output information
-    printf("Value of a: %d\n", a);
-    printf("Address of a: %p\n", &a);
-    printf("Pointer p stores address: %p\n", p);
-    printf("Value pointed by p (*p): %d\n", *p);
+    cout << "Value of a: " << a << endl;
+    cout << "Address of a: " << &a << endl;
+    cout << "Pointer p stores address: " << p << endl;
+    cout << "Value pointed by p (*p): " << *p << endl;
 
     return 0;
 }
@@ -2245,38 +2272,40 @@ int main() {
 
 **Output:**
 
-```c
+```
 Value of a: 10
-Address of a: 0x7ffee8e73abc      // Actual output may vary
+Address of a: 0x7ffee8e73abc   // (Actual output may vary)
 Pointer p stores address: 0x7ffee8e73abc
 Value pointed by p (*p): 10
 ```
 
-**Accessing the Value at the Pointer Address**
+### Accessing and Modifying Values via Pointer
 
-To access or modify the value stored at the memory location pointed to by a pointer, you use the dereference operator (`*`).
+You can **access or modify** values using the **dereference operator (`*`)**.
 
 **Example:**
 
-```c
-#include <stdio.h>
-int main(){
-   int a = 10;
-   int *p = &a;
+```cpp
+#include <iostream>
+using namespace std;
 
-   printf("Value of a: %d\n", a);
-   printf("Value of a via pointer: %d\n", *p);
+int main() {
+    int a = 10;
+    int *p = &a;
 
-   *p = 20;  // Modify the value of 'a' through the pointer
-   printf("New value of a: %d\n", a);
+    cout << "Value of a: " << a << endl;
+    cout << "Value of a via pointer: " << *p << endl;
 
-   return 0;
+    *p = 20;  // Modify a via pointer
+    cout << "New value of a: " << a << endl;
+
+    return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 Value of a: 10
 Value of a via pointer: 10
 New value of a: 20
@@ -2284,141 +2313,21 @@ New value of a: 20
 
 ### Pointer Arithmetic
 
-Pointers can be incremented or decremented, and can be used in arithmetic operations to navigate through arrays or other memory structures.
+Pointers can be incremented or decremented to move between elements in arrays.
 
 **Example:**
 
-```c
-#include <stdio.h>
-int main(){
-
-   int arr[] = {10, 20, 30, 40, 50};
-   int *p = arr;  // Points to the first element of the array
-
-   printf("%d\n", *p);
-   p++;  // Move to the next element in the array
-   printf("%d\n", *p);
-   return 0;
-}
-```
-
-**Output:**
-
-```c
-10
-20
-```
-
-### Pointers and Arrays
-
-Pointers and arrays are closely related in C. The name of an array is actually a constant pointer to the first element of the array.
-
-**Example:**
-
-```c
-#include <stdio.h>
-int main(){
-
-   int arr[5] = {10, 20, 30, 40, 50};
-   int *p = arr;
-
-   for (int i = 0; i < 5; i++) {
-       printf("Element %d: %d\n", i, *(p + i));
-       // Accessing array elements via pointer
-   }
-   return 0;
-}
-```
-
-**Output:**
-
-```c
-  Element 0: 10
-  Element 1: 20
-  Element 2: 30
-  Element 3: 40
-  Element 4: 50
-```
-
-### Pointers to Pointers
-
-A pointer can also point to another pointer, creating multiple levels of indirection.
-
-**Example:**
-
-```c
-#include <stdio.h>
-int main(){
-      int a = 10;
-   int *p = &a;
-   int **pp = &p;
-
-      printf("Value of a: %d\n", **pp);
-
-      return 0;
-}
-```
-
-**Output:**
-
-```c
-Value of a: 10
-```
-
-### Dynamic Memory Allocation (Pointer)
-
-Pointers are essential for dynamic memory allocation in C, using functions like `malloc`, `calloc`, `realloc`, and `free`.
-
-**Example:**
-
-```c
-#include <stdio.h>
-int main(){
-
-   int *p;
-   p = (int *)malloc(5 * sizeof(int));
-   // Allocates memory for an array of 5 integers
-
-   for (int i = 0; i < 5; i++) {
-       p[i] = i * 10;  // Initialize array elements
-   }
-
-   for (int i = 0; i < 5; i++) {
-       printf("%d ", p[i]);
-   }
-
-   free(p);  // Free the allocated memory
-
-      return 0;
-}
-```
-
-**Output:**
-
-```c
-0 10 20 30 40
-```
-
-### Function Pointers
-
-Pointers can also be used to point to functions, allowing for dynamic function calls and passing functions as arguments.
-
-**Example:**
-
-```c
-#include <stdio.h>
-
-void display(int n) {
-    printf("Number: %d\n", n);
-}
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    void (*funcPtr)(int);
-    // Declare a pointer to a function that takes an int and returns void
+    int arr[] = {10, 20, 30, 40, 50};
+    int *p = arr;
 
-    funcPtr = display;     // Assign function 'display' to the pointer
-
-    funcPtr(5);  // Call the function using the pointer
+    cout << *p << endl;
+    p++;  // Move to next element
+    cout << *p << endl;
 
     return 0;
 }
@@ -2426,39 +2335,1546 @@ int main() {
 
 **Output:**
 
-```c
+```
+10
+20
+```
+
+### Pointers and Arrays
+
+In C++, array names act like pointers to their first elements.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *p = arr;
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Element " << i << ": " << *(p + i) << endl;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Element 0: 10
+Element 1: 20
+Element 2: 30
+Element 3: 40
+Element 4: 50
+```
+
+### Pointer to Pointer
+
+You can create a pointer to another pointer, i.e., a **pointer to pointer**.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10;
+    int *p = &a;
+    int **pp = &p;
+
+    cout << "Value of a: " << **pp << endl;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Value of a: 10
+```
+
+### Dynamic Memory Allocation (Pointer)
+
+C++ uses `new` and `delete` for dynamic memory, unlike `malloc`/`free` in C.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int *p = new int[5];  // Allocate memory for 5 integers
+
+    for (int i = 0; i < 5; i++) {
+        p[i] = i * 10;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << p[i] << " ";
+    }
+    cout << endl;
+
+    delete[] p;  // Free memory
+    return 0;
+}
+```
+
+**Output:**
+
+```
+0 10 20 30 40
+```
+
+### Function Pointers
+
+Function pointers allow calling functions dynamically or passing them as arguments.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void display(int n) {
+    cout << "Number: " << n << endl;
+}
+
+int main() {
+    void (*funcPtr)(int);  // Declare function pointer
+    funcPtr = display;     // Assign function
+
+    funcPtr(5);  // Call function via pointer
+    return 0;
+}
+```
+
+**Output:**
+
+```
 Number: 5
 ```
 
-### Why Pointer?
+### Why Use Pointers in C++ ?
 
-- Pointers are powerful features in C/C++ that set them apart from languages like Java and Python.
+- Efficient memory access
+- Enables dynamic memory
+- Used for function callbacks
+- Crucial in data structures (linked lists, trees, etc.)
 
-- They enable efficient memory management, making software faster and more resource-aware.
+> [!CAUTION]  
+> Misuse can lead to bugs (e.g., memory leaks, dangling pointers), so use wisely.
 
-- However, overusing pointers can make code harder to understand and maintain.
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
 
-  <!-- START "Jump to Top"-->
-  <p align="right">
-    <a href="#table-of-contents">Jump to Top ▲</a>
-  </p>
-  <!-- END "Jump to Top" -->
+## Object-Oriented Programming (OOP)
+
+C++ is a multi-paradigm programming language that supports Object-Oriented Programming (OOP). OOP is based on the concept of **objects**, which are instances of **classes**. OOP focuses on the following principles:
+
+- **Encapsulation**: Grouping related data and functions into a single unit (class).
+- **Abstraction**: Hiding complex details and showing only the necessary parts.
+- **Inheritance**: Deriving new classes from existing ones.
+- **Polymorphism**: The ability of an object to take many forms.
+
+### Classes and Objects
+
+#### **Class**
+
+A **class** is a blueprint or template for creating objects. It defines properties (attributes) and behaviors (methods or functions) that the objects created from the class will have.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    // Attributes
+    string brand;
+    int year;
+
+    // Method (Function)
+    void startEngine() {
+        cout << "The " << brand << " engine started.\n";
+    }
+};
+
+int main() {
+    // Create an object of type Car
+    Car myCar;
+    myCar.brand = "Toyota";
+    myCar.year = 2020;
+
+    // Call a method
+    myCar.startEngine();
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+The Toyota engine started.
+```
+
+### Access Specifiers
+
+Access specifiers define the visibility or accessibility of class members (attributes and methods).
+
+1. **public**: Members are accessible from outside the class.
+2. **private**: Members are accessible only within the class.
+3. **protected**: Members are accessible within the class and derived classes.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    int salary;  // private data member
+
+public:
+    void setSalary(int s) { // public method
+        salary = s;
+    }
+
+    int getSalary() { // public method
+        return salary;
+    }
+};
+
+int main() {
+    Employee emp;
+    emp.setSalary(50000);  // Accessible because setSalary is public
+    cout << "Employee salary: " << emp.getSalary() << endl;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Employee salary: 50000
+```
+
+### Constructors and Destructors
+
+- **Constructor**: Special function that is called when an object is created. It initializes the object.
+- **Destructor**: Special function that is called when an object is destroyed. It is used for cleanup.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    // Constructor
+    Student(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    // Destructor
+    ~Student() {
+        cout << "Object " << name << " is being destroyed.\n";
+    }
+};
+
+int main() {
+    Student s1("Alice", 20);
+    cout << s1.name << " is " << s1.age << " years old.\n";
+
+    return 0;  // Destructor will be called automatically here
+}
+```
+
+**Output:**
+
+```
+Alice is 20 years old.
+Object Alice is being destroyed.
+```
+
+### `this` Pointer
+
+The `this` pointer is an implicit pointer available to all non-static member functions. It points to the object for which the member function is called.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Box {
+public:
+    int length;
+    Box(int l) {
+        this->length = l;  // Using 'this' pointer to differentiate member and parameter
+    }
+
+    void displayLength() {
+        cout << "Length of box: " << this->length << endl;
+    }
+};
+
+int main() {
+    Box box1(10);
+    box1.displayLength();
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Length of box: 10
+```
+
+### Static Members
+
+Static members belong to the class itself, rather than to individual objects. They are shared by all instances of the class.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Counter {
+public:
+    static int count;  // Static member
+
+    Counter() {
+        count++;
+    }
+
+    static void displayCount() {  // Static method
+        cout << "Count: " << count << endl;
+    }
+};
+
+int Counter::count = 0;  // Initialize static member outside class
+
+int main() {
+    Counter c1, c2, c3;
+    Counter::displayCount();  // Access static method using class name
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Count: 3
+```
+
+### Friend Functions and Classes
+
+A **friend function** or **friend class** can access the private and protected members of another class. Friend functions or classes are declared using the `friend` keyword.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Box {
+private:
+    int width;
+
+public:
+    Box() : width(10) {}
+
+    // Declaring a friend function
+    friend void printWidth(Box b);
+};
+
+// Friend function definition
+void printWidth(Box b) {
+    cout << "Width of box: " << b.width << endl;
+}
+
+int main() {
+    Box box;
+    printWidth(box);  // Friend function can access private members
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Width of box: 10
+```
+
+### **Object Arrays**
+
+You can create arrays of objects just like any other type.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    string brand;
+
+    Car(string b) : brand(b) {}
+
+    void showBrand() {
+        cout << "Brand: " << brand << endl;
+    }
+};
+
+int main() {
+    Car cars[2] = {Car("Toyota"), Car("Honda")};
+
+    for (int i = 0; i < 2; i++) {
+        cars[i].showBrand();
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Brand: Toyota
+Brand: Honda
+```
+
+### **Pointers to Objects**
+
+You can also create pointers to objects and use them to access object members.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Book {
+public:
+    string title;
+
+    Book(string t) : title(t) {}
+
+    void showTitle() {
+        cout << "Book Title: " << title << endl;
+    }
+};
+
+int main() {
+    Book* bookPtr = new Book("C++ Programming");
+    bookPtr->showTitle();  // Using pointer to access member function
+
+    delete bookPtr;  // Free memory
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Book Title: C++ Programming
+```
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
+
+## Inheritance
+
+Inheritance is one of the core concepts of Object-Oriented Programming (OOP). It allows a class (called the **derived class**) to inherit properties and methods from another class (called the **base class**). This helps in code reuse, extension of functionality, and maintaining a hierarchical relationship between classes.
+
+In C++, inheritance is achieved by using the `:` symbol. A derived class can inherit members (attributes and methods) from a base class.
+
+**Types of Inheritance in C++**
+
+1. **Single Inheritance**: A derived class inherits from only one base class.
+2. **Multiple Inheritance**: A derived class inherits from more than one base class.
+3. **Multilevel Inheritance**: A class inherits from a derived class which, in turn, is derived from another base class.
+4. **Hierarchical Inheritance**: Multiple classes inherit from a single base class.
+5. **Hybrid Inheritance**: A combination of two or more types of inheritance.
+
+**Syntax:**
+
+```cpp
+class DerivedClass : accessSpecifier BaseClass {
+    // Derived class members
+};
+```
+
+- **`accessSpecifier`** can be `public`, `protected`, or `private` (more on this below).
+- The **base class** is specified after the colon `:`.
+
+### Access Specifiers in Inheritance
+
+1. **Public Inheritance**: Public members of the base class become public members of the derived class.
+2. **Protected Inheritance**: Public and protected members of the base class become protected members in the derived class.
+3. **Private Inheritance**: Public and protected members of the base class become private members of the derived class.
+
+**Example: Single Inheritance**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "The dog barks." << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.eat();  // Inherited function from Animal class
+    dog.bark(); // Function from Dog class
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+This animal eats food.
+The dog barks.
+```
+
+**Example: Multiple Inheritance**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class 1
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Base class 2
+class Machine {
+public:
+    void start() {
+        cout << "The machine starts." << endl;
+    }
+};
+
+// Derived class
+class Robot : public Animal, public Machine {
+public:
+    void talk() {
+        cout << "The robot talks." << endl;
+    }
+};
+
+int main() {
+    Robot robot;
+    robot.eat();   // Inherited from Animal class
+    robot.start(); // Inherited from Machine class
+    robot.talk();  // Defined in Robot class
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+This animal eats food.
+The machine starts.
+The robot talks.
+```
+
+**Example: Multilevel Inheritance**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Derived class 1
+class Mammal : public Animal {
+public:
+    void walk() {
+        cout << "The mammal walks." << endl;
+    }
+};
+
+// Derived class 2 (from Mammal)
+class Dog : public Mammal {
+public:
+    void bark() {
+        cout << "The dog barks." << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.eat();  // Inherited from Animal
+    dog.walk(); // Inherited from Mammal
+    dog.bark(); // Defined in Dog
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+This animal eats food.
+The mammal walks.
+The dog barks.
+```
+
+**Example: Hierarchical Inheritance**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Derived class 1
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "The dog barks." << endl;
+    }
+};
+
+// Derived class 2
+class Cat : public Animal {
+public:
+    void meow() {
+        cout << "The cat meows." << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.eat();  // Inherited from Animal
+    dog.bark(); // Defined in Dog
+
+    Cat cat;
+    cat.eat();  // Inherited from Animal
+    cat.meow(); // Defined in Cat
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+This animal eats food.
+The dog barks.
+This animal eats food.
+The cat meows.
+```
+
+### Constructor in Inheritance
+
+In C++, constructors are not inherited. However, the constructor of the base class is called before the constructor of the derived class.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    Animal() {
+        cout << "Animal constructor called!" << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    Dog() {
+        cout << "Dog constructor called!" << endl;
+    }
+};
+
+int main() {
+    Dog dog; // Calls both Animal and Dog constructors
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Animal constructor called!
+Dog constructor called!
+```
+
+### Destructor in Inheritance
+
+In inheritance, the derived class’s destructor is called first, followed by the base class’s destructor. If no destructor is explicitly defined, C++ will automatically call the base class destructor after the derived class destructor.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    Animal() {
+        cout << "Animal constructor called!" << endl;
+    }
+
+    ~Animal() {
+        cout << "Animal destructor called!" << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    Dog() {
+        cout << "Dog constructor called!" << endl;
+    }
+
+    ~Dog() {
+        cout << "Dog destructor called!" << endl;
+    }
+};
+
+int main() {
+    Dog dog;  // Calls constructors and destructors
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Animal constructor called!
+Dog constructor called!
+Dog destructor called!
+Animal destructor called!
+```
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
+
+## Polymorphism
+
+Polymorphism is a key concept in Object-Oriented Programming (OOP) that allows objects of different types to be treated as objects of a common base type. The term **polymorphism** means "many shapes," and it allows for flexibility in how objects behave based on their specific types.
+
+In C++, polymorphism is achieved through:
+
+1. **Compile-time Polymorphism (Static Polymorphism)**
+2. **Run-time Polymorphism (Dynamic Polymorphism)**
+
+### Compile-time Polymorphism (Static Polymorphism)
+
+Compile-time polymorphism is achieved through **function overloading** and **operator overloading**. The decision of which function to call is made at compile time.
+
+#### **Function Overloading**
+
+Function overloading allows multiple functions with the same name but different parameters (different number or types of parameters).
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Print {
+public:
+    // Overloaded function for integer type
+    void display(int i) {
+        cout << "Integer: " << i << endl;
+    }
+
+    // Overloaded function for float type
+    void display(float f) {
+        cout << "Float: " << f << endl;
+    }
+
+    // Overloaded function for string type
+    void display(string s) {
+        cout << "String: " << s << endl;
+    }
+};
+
+int main() {
+    Print obj;
+
+    obj.display(5);        // Calls the function with int argument
+    obj.display(3.14f);    // Calls the function with float argument
+    obj.display("Hello");  // Calls the function with string argument
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Integer: 5
+Float: 3.14
+String: Hello
+```
+
+#### **Operator Overloading in C++**
+
+Operator overloading allows defining custom behavior for operators when applied to user-defined data types.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+
+    Complex() : real(0), imag(0) {}
+
+    // Operator overloading for adding two complex numbers
+    Complex operator + (const Complex &c) {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.imag = imag + c.imag;
+        return temp;
+    }
+
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1, c2, c3;
+
+    c1.real = 5; c1.imag = 3;
+    c2.real = 2; c2.imag = 7;
+
+    c3 = c1 + c2; // Using overloaded operator +
+    c3.display();  // Output: 7 + 10i
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+7 + 10i
+```
+
+### Run-time Polymorphism (Dynamic Polymorphism)
+
+Run-time polymorphism is achieved using **function overriding** in the context of inheritance. The decision of which function to call is made at runtime based on the type of object pointed to by the base class pointer.
+
+#### **Virtual Functions**
+
+A **virtual function** is a function defined in the base class that can be overridden in the derived class. The function call is resolved at runtime based on the object type that the base class pointer is pointing to.
+
+To enable run-time polymorphism, you need to declare a function in the base class as `virtual`.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    virtual void sound() { // Virtual function
+        cout << "Animal makes a sound" << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void sound() override { // Overridden function
+        cout << "Dog barks" << endl;
+    }
+};
+
+// Derived class
+class Cat : public Animal {
+public:
+    void sound() override { // Overridden function
+        cout << "Cat meows" << endl;
+    }
+};
+
+int main() {
+    Animal *animal;
+
+    Dog dog;
+    Cat cat;
+
+    // Using base class pointer to call derived class functions
+    animal = &dog;
+    animal->sound();  // Calls Dog's sound() method
+
+    animal = &cat;
+    animal->sound();  // Calls Cat's sound() method
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Dog barks
+Cat meows
+```
+
+- The `sound()` function in the `Animal` class is a **virtual function**, which allows the derived classes (`Dog`, `Cat`) to override it.
+- When the base class pointer (`animal`) points to a `Dog` object, it calls the `Dog`'s `sound()` method.
+- Similarly, when the base class pointer points to a `Cat` object, it calls the `Cat`'s `sound()` method.
+
+#### **Pure Virtual Functions and Abstract Classes**
+
+A **pure virtual function** is a virtual function that has no implementation in the base class, making the class abstract. It is declared using `= 0` in the declaration.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() = 0; // Pure virtual function, making Shape an abstract class
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Circle" << endl;
+    }
+};
+
+class Rectangle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Rectangle" << endl;
+    }
+};
+
+int main() {
+    Shape* shape;
+    Circle circle;
+    Rectangle rectangle;
+
+    shape = &circle;
+    shape->draw();  // Output: Drawing Circle
+
+    shape = &rectangle;
+    shape->draw();  // Output: Drawing Rectangle
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Drawing Circle
+Drawing Rectangle
+```
+
+In this example:
+
+- `Shape` is an **abstract class** because it has a pure virtual function (`draw`).
+- The `Circle` and `Rectangle` classes provide implementations for the pure virtual function.
+- You cannot create an object of the `Shape` class directly.
+
+### Advantages of Polymorphism
+
+- **Code Reusability**: With polymorphism, one function can work with objects of different types, leading to less code duplication.
+- **Maintainability**: Polymorphism makes the system easier to extend and maintain, as you can add new derived classes without modifying existing code.
+- **Flexibility**: Polymorphism allows you to write more general code that can handle new types of objects, making the program flexible.
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
+
+## Encapsulation
+
+**Encapsulation** is one of the fundamental concepts of Object-Oriented Programming (OOP) in C++. It refers to the **bundling of data and the functions** that operate on that data into a **single unit** (class), while also **restricting direct access** to some of the object's components. This is achieved using **access specifiers** (`private`, `protected`, `public`).
+
+Encapsulation promotes **data hiding**, security, and modular code structure.
+
+**Key Concepts of Encapsulation:**
+
+| Feature               | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| **Class**             | Combines data (variables) and methods (functions) in one unit      |
+| **Access Specifiers** | Control access to class members (`private`, `protected`, `public`) |
+| **Private Members**   | Cannot be accessed directly from outside the class                 |
+| **Public Methods**    | Used to access and modify private data safely (getters/setters)    |
+
+**Example: Simple Encapsulation**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Account {
+private:
+    // Private data member
+    double balance;
+
+public:
+    // Constructor to initialize balance
+    Account(double b) {
+        if (b >= 0)
+            balance = b;
+        else
+            balance = 0;
+    }
+
+    // Getter function to access balance
+    double getBalance() {
+        return balance;
+    }
+
+    // Setter function to update balance
+    void deposit(double amount) {
+        if (amount > 0)
+            balance += amount;
+    }
+
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance)
+            balance -= amount;
+        else
+            cout << "Invalid withdrawal amount." << endl;
+    }
+};
+
+int main() {
+    Account myAccount(1000);  // Create object with initial balance
+
+    cout << "Initial Balance: $" << myAccount.getBalance() << endl;
+
+    myAccount.deposit(500);
+    cout << "After Deposit: $" << myAccount.getBalance() << endl;
+
+    myAccount.withdraw(300);
+    cout << "After Withdrawal: $" << myAccount.getBalance() << endl;
+
+    // myAccount.balance = 10000; // ❌ Not allowed (private access)
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Initial Balance: $1000
+After Deposit: $1500
+After Withdrawal: $1200
+```
+
+### Advantages of Encapsulation
+
+- **Data Hiding**: Internal state is hidden from outside access.
+- **Improved Security**: Only validated changes are allowed through public methods.
+- **Modularity**: Each object manages its own state and behavior.
+- **Easy Maintenance**: Implementation changes inside the class don’t affect external code.
+- **Better Control**: You can control how data is accessed or modified via setters/getters.
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
+  
+## Abstraction
+
+**Abstraction** in C++ is an **OOP principle** that allows you to hide complex implementation details and show **only the essential features** of an object. It simplifies programming by separating **what an object does** from **how it does it**.
+
+In C++, abstraction is mainly achieved through:
+
+- **Abstract Classes** (with at least one pure virtual function)
+- **Interfaces** (fully abstract classes)
+- **Access Specifiers** (`private`, `protected`, `public`) to hide implementation details
+
+**Key Concepts:**
+
+| Concept                   | Description                                                           |
+| ------------------------- | --------------------------------------------------------------------- |
+| **Abstraction**           | Hides internal implementation, shows only necessary features          |
+| **Abstract Class**        | A class with at least one **pure virtual function** (`= 0`)           |
+| **Pure Virtual Function** | A function declared in a base class to be overridden in derived class |
+| **Interface**             | A class with only pure virtual functions, used as a contract          |
+
+**Example: Using Abstract Class**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Abstract class
+class Shape {
+public:
+    // Pure virtual function
+    virtual void draw() = 0;
+
+    void commonMethod() {
+        cout << "This is a shared method in abstract class.\n";
+    }
+};
+
+// Derived class: Circle
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a Circle.\n";
+    }
+};
+
+// Derived class: Rectangle
+class Rectangle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a Rectangle.\n";
+    }
+};
+
+int main() {
+    Shape* s1 = new Circle();
+    Shape* s2 = new Rectangle();
+
+    s1->draw();           // Output: Drawing a Circle.
+    s2->draw();           // Output: Drawing a Rectangle.
+    s1->commonMethod();   // Output: This is a shared method in abstract class.
+
+    delete s1;
+    delete s2;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Drawing a Circle.
+Drawing a Rectangle.
+This is a shared method in abstract class.
+```
+
+### Why Use Abstraction?
+
+- **Hide Complexity**: Keep implementation details hidden from the user.
+- **Improve Maintainability**: Changing internal logic doesn’t affect users.
+- **Enhance Modularity**: Work with interfaces and abstract classes.
+- **Encourage Polymorphism**: Let derived classes provide specific behaviors.
+- **Code Reusability**: Share base behaviors and override specifics.
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
+
+## Operator Overloading
+
+**Operator Overloading** in C++ allows you to redefine the meaning of operators (`+`, `-`, `==`, `<<`, etc.) for **user-defined types** (like classes and structs). This improves code **readability**, **flexibility**, and enables **intuitive syntax** when working with objects.
+
+### Why Use Operator Overloading?
+
+- Makes custom objects behave like built-in types.
+- Enhances code clarity and usability.
+- Enables operations like addition, comparison, assignment, etc., on class objects.
+
+**Syntax:**
+
+```cpp
+return_type operator symbol (parameters) {
+    // implementation
+}
+```
+
+**Example: Overload `+` for a `Point` Class**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Point {
+    int x, y;
+
+public:
+    Point(int x = 0, int y = 0) : x(x), y(y) {}
+
+    // Overload + operator
+    Point operator+(const Point& p) {
+        return Point(x + p.x, y + p.y);
+    }
+
+    void display() {
+        cout << "(" << x << ", " << y << ")" << endl;
+    }
+};
+
+int main() {
+    Point p1(2, 3), p2(4, 5), result;
+
+    result = p1 + p2;  // using overloaded + operator
+
+    result.display();  // Output: (6, 8)
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+(6, 8)
+```
+
+### Common Operators You Can Overload
+
+| Operator   | Meaning                     |
+| ---------- | --------------------------- |
+| `+`        | Addition                    |
+| `-`        | Subtraction                 |
+| `*`        | Multiplication              |
+| `/`        | Division                    |
+| `==`, `!=` | Comparison                  |
+| `<<`, `>>` | Stream insertion/extraction |
+| `=`        | Assignment                  |
+| `[]`       | Subscript (array indexing)  |
+| `()`       | Function call               |
+| `->`       | Member access via pointer   |
+
+### Rules & Restrictions
+
+- At least **one operand** must be a **user-defined type**.
+- You **cannot overload**:
+
+  - `::` (scope resolution)
+  - `.` (member access)
+  - `.*` (member pointer access)
+  - `sizeof`, `typeid`, `alignof`, etc.
+
+- Overloaded operators **don’t change precedence** or **associativity**.
+
+**Example: Overload `==` and `<<`**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Book {
+    string title;
+    int pages;
+
+public:
+    Book(string t, int p) : title(t), pages(p) {}
+
+    // Overload ==
+    bool operator==(const Book& b) {
+        return (title == b.title && pages == b.pages);
+    }
+
+    // Overload <<
+    friend ostream& operator<<(ostream& out, const Book& b) {
+        out << "Book: " << b.title << ", Pages: " << b.pages;
+        return out;
+    }
+};
+
+int main() {
+    Book b1("C++ Basics", 300), b2("C++ Basics", 300);
+
+    if (b1 == b2)
+        cout << "Books are equal" << endl;
+
+    cout << b1 << endl;
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Books are equal
+Book: C++ Basics, Pages: 300
+```
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
+
+## Templates and Generics
+
+**Templates** in C++ allow you to write **generic and reusable code**. They enable functions and classes to operate with **generic types**, so you can write a single codebase to work with different data types.
+
+**Types of Templates in C++**
+
+1. **Function Templates**
+2. **Class Templates**
+
+### **Function Templates**
+
+These allow the creation of a single function that can work with **any data type**.
+
+**Syntax:**
+
+```cpp
+template <typename T>
+T functionName(T arg) {
+    // function body
+}
+```
+
+You can also use `class` instead of `typename` — both work the same.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+template <typename T>
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    cout << add<int>(3, 4) << endl;      // 7
+    cout << add<double>(2.5, 4.3) << endl; // 6.8
+    cout << add<string>("Hi ", "there!") << endl; // Hi there!
+    return 0;
+}
+```
+
+**Output:**
+
+```
+7
+6.8
+Hi there!
+```
+
+### **Class Templates**
+
+Class templates allow the definition of **generic classes** to handle data of any type.
+
+**Syntax:**
+
+```cpp
+template <class T>
+class ClassName {
+   T data;
+public:
+   ClassName(T val) : data(val) {}
+   void show() { cout << data << endl; }
+};
+```
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Box {
+    T value;
+
+public:
+    Box(T val) : value(val) {}
+    void display() { cout << "Value: " << value << endl; }
+};
+
+int main() {
+    Box<int> intBox(10);
+    Box<string> strBox("Hello");
+
+    intBox.display();     // Value: 10
+    strBox.display();     // Value: Hello
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Value: 10
+Value: Hello
+```
+
+### Template with Multiple Parameters
+
+**Example:**
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+template <class T1, class T2>
+class Pair {
+    T1 first;
+    T2 second;
+
+public:
+    Pair(T1 a, T2 b) : first(a), second(b) {}
+    void show() {
+        cout << "First: " << first << ", Second: " << second << endl;
+    }
+};
+
+int main() {
+    Pair<int, string> p(101, "Alice");
+    p.show();  // First: 101, Second: Alice
+    return 0;
+}
+```
+
+**Output:**
+
+```
+First: 101, Second: Alice
+```
+
+> [!IMPORTANT]
+>
+> - Templates are **compiled when used**, not when defined.
+> - You can provide **default types** to templates.
+> - Templates support **specialization** (custom behavior for specific types).
+
+### Function Template Overloading
+
+Templates can coexist with regular functions. The compiler chooses the best match.
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void show(int x) {
+    cout << "Regular function: " << x << endl;
+}
+
+template <typename T>
+void show(T x) {
+    cout << "Template function: " << x << endl;
+}
+
+int main() {
+    show(100);    // Calls regular function
+    show(3.14);   // Calls template function
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Regular function: 100
+Template function: 3.14
+```
+
+<!-- START "Jump to Top"-->
+<p align="right">
+<a href="#table-of-contents">Jump to Top ▲</a>
+</p>
+<!-- END "Jump to Top" -->
 
 ## Structure, Union and Enum
 
-C provides powerful user-defined data types that help group different data under one name. These include:
+C++ supports powerful user-defined data types that help group different kinds of data under a single name:
 
 - `struct` → Structure
 - `union` → Union
 - `enum` → Enumeration
 
-### Structure
+### Structure (`struct`)
 
-A **structure** is a user-defined data type in C that allows grouping variables of different types under one name.
+A **structure** in C++ allows grouping variables of **different types** under one user-defined name.
 
 **Syntax:**
 
-```c
+```cpp
 struct StructName {
     datatype member1;
     datatype member2;
@@ -2468,19 +3884,21 @@ struct StructName {
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
 
 struct Person {
-    char name[50];
+    string name;
     int age;
 };
 
 int main() {
-    struct Person p1 = {"Alice", 25};
+    Person p1 = {"Alice", 25};
 
-    printf("Name: %s\n", p1.name);
-    printf("Age: %d\n", p1.age);
+    cout << "Name: " << p1.name << endl;
+    cout << "Age: " << p1.age << endl;
 
     return 0;
 }
@@ -2488,18 +3906,18 @@ int main() {
 
 **Output:**
 
-```c
+```
 Name: Alice
 Age: 25
 ```
 
-### Union
+### Union (`union`)
 
-A **union** is like a structure, but all members **share the same memory location.** This saves memory but only one member can hold a value at any time.
+A **union** is like a structure but all members **share the same memory location**. Only one member can hold a value at any one time.
 
 **Syntax:**
 
-```c
+```cpp
 union UnionName {
     datatype member1;
     datatype member2;
@@ -2509,8 +3927,9 @@ union UnionName {
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 union Data {
     int i;
@@ -2518,52 +3937,53 @@ union Data {
 };
 
 int main() {
-    union Data d;
+    Data d;
     d.i = 10;
+    cout << "d.i = " << d.i << endl;
 
-    printf("d.i = %d\n", d.i);
-
-    d.f = 3.14;
-    printf("d.f = %.2f\n", d.f);
+    d.f = 3.14f;
+    cout << "d.f = " << d.f << endl;
 
     // d.i is now overwritten
-    printf("d.i after setting d.f = %d\n", d.i);
+    cout << "d.i after setting d.f = " << d.i << endl;
 
     return 0;
 }
 ```
 
-**Output:**
+**Output: (Memory Overlap)**
 
-```c
+```
 d.i = 10
 d.f = 3.14
-d.i after setting d.f = 1078523331   // Undefined result (due to memory sharing)
+d.i after setting d.f = 1078523331
 ```
 
-### Enum
+> [!CAUTION] Memory sharing causes unexpected value in `d.i` after assigning to `d.f`.
 
-An **enum (enumeration)** is a user-defined data type that assigns **names to a set of integer constants.**
+### Enumeration (`enum`)
+
+An **enum** assigns **names to a set of integer constants** to improve code readability.
 
 **Syntax:**
 
-```c
-enum EnumName {CONST1, CONST2, CONST3, ...};
+```cpp
+enum EnumName { CONST1, CONST2, CONST3, ... };
 ```
 
-By default, `CONST1 = 0`, `CONST2 = 1`, etc.
+- Default: `CONST1 = 0`, `CONST2 = 1`, and so on.
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 enum Weekday { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 
 int main() {
-    enum Weekday today = Friday;
-
-    printf("Numeric value of Friday: %d\n", today);
+    Weekday today = Friday;
+    cout << "Numeric value of Friday: " << today << endl;
 
     return 0;
 }
@@ -2571,15 +3991,19 @@ int main() {
 
 **Output:**
 
-```c
+```
 Numeric value of Friday: 5
 ```
 
-💡 You can also manually assign custom values to enum constants:
+**Custom Enum Values**
 
-```c
+You can assign custom values to enum constants:
+
+```cpp
 enum Color { Red = 1, Green = 3, Blue = 5 };
 ```
+
+This lets you represent specific values explicitly.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -2589,187 +4013,155 @@ enum Color { Red = 1, Green = 3, Blue = 5 };
 
 ## Dynamic Memory Allocation
 
-Dynamic memory allocation allows you to **allocate memory at runtime** using pointers.  
-Unlike static memory allocation (fixed size), dynamic memory can **grow or shrink as needed** while the program is running.
+Dynamic memory allocation in C++ lets you **allocate memory at runtime** using pointers and the `new` and `delete` operators (instead of `malloc`, `calloc`, `realloc`, and `free` in C).
 
-**Dynamic Memory Functions**
+It provides flexibility to create memory that can **grow or shrink** during execution.
 
-| Function    | Description                                        |
-| ----------- | -------------------------------------------------- |
-| `malloc()`  | Allocates a block of memory                        |
-| `calloc()`  | Allocates memory and initializes all bytes to zero |
-| `realloc()` | Resizes previously allocated memory block          |
-| `free()`    | Frees allocated memory to avoid memory leaks       |
+**Memory Functions in C++**
 
-### `malloc()` – Memory Allocation
+| C Function  | C++ Equivalent               | Description                    |
+| ----------- | ---------------------------- | ------------------------------ |
+| `malloc()`  | `new`                        | Allocates memory               |
+| `calloc()`  | `new` (initialized manually) | Allocates & initializes memory |
+| `realloc()` | Manually recreate + copy     | Resize allocated memory block  |
+| `free()`    | `delete` / `delete[]`        | Frees allocated memory         |
 
-The `malloc()` function in C is used to **dynamically allocate memory** at runtime from the heap. It stands for **Memory Allocation**.
+### `new` – Dynamic Allocation
 
-- It returns a `void *` (pointer to void), which should be **typecast** to the appropriate type.
-- The allocated memory contains **garbage values** (uninitialized).
-
-**Syntax:**
-
-```c
-ptr = (castType *) malloc(size);
-```
+The `new` operator dynamically allocates memory and returns a pointer to it. Unlike `malloc()`, it does **not require casting** and **constructs objects** if needed.
 
 **Example:**
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int *arr;
-    arr = (int *)malloc(3 * sizeof(int));  // allocate memory for 3 integers
+    int* arr = new int[3];  // allocate memory for 3 integers
 
-    if (arr == NULL) {
-        printf("Memory not allocated.\n");
-        return 1;
-    }
-
-    arr[0] = 10; arr[1] = 20; arr[2] = 30;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
 
     for (int i = 0; i < 3; i++) {
-        printf("%d ", arr[i]);
+        cout << arr[i] << " ";
     }
 
-    free(arr);  // free the allocated memory
+    delete[] arr;  // free memory
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 10 20 30
 ```
 
-### `calloc()` – Contiguous Allocation
+### Zero-Initialized Allocation (like `calloc()`)
 
-The `calloc()` function in C is used to **dynamically allocate memory** at runtime — just like `malloc()`, but with two key differences:
-
-- It allocates **contiguous memory blocks**.
-- It **initializes** all allocated memory to **zero**.
-
-**Syntax:**
-
-```c
-ptr = (castType *) calloc(n, size);
-```
+C++ doesn't have a `calloc` equivalent, but you can manually initialize after allocation or use modern containers (e.g. `vector`). Here's how to emulate `calloc`:
 
 **Example:**
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int *arr;
-    arr = (int *)calloc(3, sizeof(int));  // allocates and initializes to 0
-
-    if (arr == NULL) {
-        printf("Memory not allocated.\n");
-        return 1;
-    }
+    int* arr = new int[3]();  // () initializes all to zero
 
     for (int i = 0; i < 3; i++) {
-        printf("%d ", arr[i]);
+        cout << arr[i] << " ";
     }
 
-    free(arr);
+    delete[] arr;
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 0 0 0
 ```
 
-### `realloc()` – Reallocate Memory
+### Resizing Memory (like `realloc()`)
 
-The `realloc()` function in C is used to **resize previously allocated memory** (via `malloc()` or `calloc()`), either increasing or decreasing its size.
+C++ has no direct `realloc()` equivalent. To resize:
 
-- It avoids the need to manually allocate a new block and copy data.
-- Contents up to the **minimum of old and new sizes** are preserved.
-
-**Syntax:**
-
-```c
-ptr = realloc(ptr, newSize);
-```
+- Allocate new memory
+- Copy old values
+- Delete old memory
 
 **Example:**
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int *arr = malloc(2 * sizeof(int));
-    arr[0] = 5; arr[1] = 10;
+    int* arr = new int[2];
+    arr[0] = 5;
+    arr[1] = 10;
 
-    arr = realloc(arr, 4 * sizeof(int));
-    arr[2] = 15; arr[3] = 20;
+    // Create a new array with larger size
+    int* newArr = new int[4];
 
-    for (int i = 0; i < 4; i++) {
-        printf("%d ", arr[i]);
+    // Copy existing data
+    for (int i = 0; i < 2; i++) {
+        newArr[i] = arr[i];
     }
 
-    free(arr);
+    // Add new data
+    newArr[2] = 15;
+    newArr[3] = 20;
+
+    // Delete old array
+    delete[] arr;
+
+    // Print new array
+    for (int i = 0; i < 4; i++) {
+        cout << newArr[i] << " ";
+    }
+
+    delete[] newArr;
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 5 10 15 20
 ```
 
-### `free()` – Release Memory
+### `delete` – Freeing Memory (like `free()`)
 
-The `free()` function is used to **release dynamically allocated memory** back to the system once you're done using it.
-
-- Prevents **memory leaks**
-- Only used for memory allocated with `malloc()`, `calloc()`, or `realloc()`
+`delete` and `delete[]` are used to free dynamically allocated memory in C++.
 
 **Example:**
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int *arr;
     int n = 5;
+    int* arr = new int[n];
 
-    // Allocate memory for 5 integers
-    arr = (int *)malloc(n * sizeof(int));
-
-    if (arr == NULL) {
-        printf("Memory allocation failed.\n");
-        return 1;
-    }
-
-    // Assign values
     for (int i = 0; i < n; i++) {
         arr[i] = (i + 1) * 10;
     }
 
-    // Print values
-    printf("Values in the array: ");
+    cout << "Values in the array: ";
     for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+        cout << arr[i] << " ";
     }
-    printf("\n");
+    cout << endl;
 
-    // Free the allocated memory
-    free(arr);
-    printf("Memory successfully freed.\n");
+    delete[] arr;
+    cout << "Memory successfully freed." << endl;
 
     return 0;
 }
@@ -2777,7 +4169,7 @@ int main() {
 
 **Output:**
 
-```c
+```
 Values in the array: 10 20 30 40 50
 Memory successfully freed.
 ```
@@ -2788,98 +4180,160 @@ Memory successfully freed.
 </p>
 <!-- END "Jump to Top" -->
 
-## Typedef and Type Casting
+## Type Conversion and Typecasting
 
-Here’s a well-structured explanation of `typedef` and `Type Casting`:
+In C++, **Type Conversion** and **Typecasting** refer to changing a variable from one data type to another. This is essential in many operations, especially when dealing with arithmetic between different types or converting user input/output types.
 
-### Typedef
+### Type Conversion in C++
 
-The `typedef` keyword allows you to create **new names (aliases)** for existing data types. It improves code readability and portability.
+There are **two main types** of conversions:
 
-**Syntax:**
+1. **Implicit Conversion:** Done **automatically** by the compiler
+2. **Explicit Conversion:** Done **manually** by the programmer (called typecasting)
 
-```c
-typedef existing_type new_name;
-```
+#### **Implicit Type Conversion (Automatic)**
 
-**Example: Using `typedef`**
+The compiler **automatically** converts one data type to another (usually a **higher** type to avoid data loss).
 
-```c
-#include <stdio.h>
+Rule:
 
-typedef unsigned int uint;
+Lower → Higher rank:
+`bool → char → int → float → double`
+
+Example:
+
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    uint a = 10;
-    printf("Value of a: %u\n", a);
+    int i = 42;
+    double d = i;  // int implicitly converted to double
+
+    cout << "i = " << i << endl;
+    cout << "d = " << d << endl;
+
+    return 0;
+}
+```
+
+Output:
+
+```
+i = 42
+d = 42
+```
+
+#### **Explicit Type Conversion (Typecasting)**
+
+You manually **cast** a value from one type to another.
+
+**Syntax: (3 ways)**
+
+1. **C-style cast:**
+
+   ```cpp
+   (type)expression
+   ```
+
+2. **Function-style cast:**
+
+   ```cpp
+   type(expression)
+   ```
+
+3. **C++ cast operators:**
+
+   - `static_cast<type>(expression)`
+   - `dynamic_cast<type>(expression)` (for polymorphic classes)
+   - `const_cast<type>(expression)` (remove `const`)
+   - `reinterpret_cast<type>(expression)` (bitwise conversion)
+
+**Example: C-style & Function-style Cast**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    double pi = 3.14159;
+
+    int intPi1 = (int)pi;       // C-style
+    int intPi2 = int(pi);       // Function-style
+
+    cout << "Original: " << pi << endl;
+    cout << "C-style cast: " << intPi1 << endl;
+    cout << "Function-style cast: " << intPi2 << endl;
+
     return 0;
 }
 ```
 
 **Output:**
 
-```c
-Value of a: 10
+```
+Original: 3.14159
+C-style cast: 3
+Function-style cast: 3
 ```
 
-### Type Casting in C
+**Example: `static_cast`**
 
-Type casting allows you to **convert one data type into another**.
-There are two types:
-
-1. **Implicit (automatic)** – Done by compiler
-2. **Explicit (manual)** – Done by programmer
-
-**Syntax:**
-
-```c
-(type) expression;
-```
-
-**Example: Integer to Float**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int a = 5, b = 2;
-    float result;
+    float f = 9.81;
+    int i = static_cast<int>(f);  // Converts float to int
 
-    result = (float)a / b;
-    printf("Result: %.2f\n", result);
+    cout << "Original float: " << f << endl;
+    cout << "After static_cast: " << i << endl;
+
     return 0;
 }
 ```
 
 **Output:**
 
-```c
-Result: 2.50
+```
+Original float: 9.81
+After static_cast: 9
 ```
 
-Without casting, `a / b` would result in integer division (`2` instead of `2.50`).
+**Example: `reinterpret_cast`**
 
-**Example 2: Float to Integer**
-
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    float num = 7.89;
-    int intNum = (int)num;
+    int x = 65;
+    char* ch = reinterpret_cast<char*>(&x);
 
-    printf("Original: %.2f\n", num);
-    printf("Converted to int: %d\n", intNum);
+    cout << "First byte of x as char: " << *ch << endl;
     return 0;
 }
 ```
 
-**Output:**
+**Output: (on little-endian systems)**
 
-```c
-Original: 7.89
-Converted to int: 7
 ```
+First byte of x as char: A
+```
+
+### Use Case
+
+- **`static_cast`** - Safe, standard conversion between types (int ↔ float, base ↔ derived)
+- **`dynamic_cast`** - Used for safe downcasting in polymorphic class hierarchies.
+- **`const_cast`** - Add/remove `const` or `volatile` qualifier
+- **`reinterpret_cast`** - Low-level reinterpretation (dangerous, for bit-level tricks)
+
+> [!TIP]
+>
+> - Use `static_cast` over C-style for **clarity and type safety**.
+> - Avoid `reinterpret_cast` unless **absolutely necessary**.
+> - Avoid implicit conversions when there's **risk of precision loss or truncation**.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -2889,100 +4343,181 @@ Converted to int: 7
 
 ## File Handling
 
-File handling in C allows you to **create**, **read**, **write**, and **manipulate files** on disk — making your programs more powerful and persistent.
+File handling in C++ allows you to **create, write, read, and manipulate files** (text or binary) using **file streams** provided by the `<fstream>` library.
 
-### Types of File Access Modes
+C++ provides three main file stream classes in the `<fstream>` header:
 
-| Mode   | Description                                                         |
-| ------ | ------------------------------------------------------------------- |
-| `"r"`  | Open for reading. Error if file doesn't exist.                      |
-| `"w"`  | Open for writing. Creates file if not exists. Overwrites if exists. |
-| `"a"`  | Open for appending. Creates if not exists. Writes at end of file.   |
-| `"r+"` | Open for reading and writing. File must exist.                      |
-| `"w+"` | Open for reading and writing. Overwrites file.                      |
-| `"a+"` | Open for reading and appending. Creates if not exists.              |
+| Class      | Description                                                   |
+| ---------- | ------------------------------------------------------------- |
+| `ifstream` | Input stream – for reading files (`in`)                       |
+| `ofstream` | Output: stream – for writing files (`out`)                    |
+| `fstream`  | Input/output stream – for both reading and writing (`in/out`) |
 
-### Basic File Operations
+Include the necessary header:
 
-| Function               | Purpose                        |
-| ---------------------- | ------------------------------ |
-| `fopen()`              | Opens a file                   |
-| `fclose()`             | Closes an opened file          |
-| `fprintf()`            | Writes formatted data to file  |
-| `fscanf()`             | Reads formatted data from file |
-| `fgets()` / `fputs()`  | String-based file I/O          |
-| `fread()` / `fwrite()` | Binary I/O                     |
+```cpp
+#include <fstream>
+```
+
+### Opening and Closing Files
+
+**Syntax to open a file:**
+
+```cpp
+ifstream fin("file.txt");       // for reading
+ofstream fout("file.txt");      // for writing
+fstream fio("file.txt");        // for both
+```
+
+**Alternative using `.open()` method:**
+
+```cpp
+fin.open("file.txt");
+```
+
+**Closing the file:**
+
+```cpp
+fin.close();
+```
 
 **Example: Writing to a File**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 int main() {
-    FILE *fp = fopen("output.txt", "w");  // Open file for writing
+    ofstream fout("example.txt");  // creates and opens the file
 
-    if (fp == NULL) {
-        printf("Error opening file!\n");
+    if (!fout) {
+        cout << "File couldn't be opened!" << endl;
         return 1;
     }
 
-    fprintf(fp, "Hello, File Handling in C!\n");
-    fclose(fp);
+    fout << "Hello, C++ File Handling!" << endl;
+    fout << "This is a sample file." << endl;
 
-    printf("Data written successfully.\n");
-
+    fout.close();  // don't forget to close the file
     return 0;
 }
 ```
 
-**Output: (Console)**
+**Output: (in `example.txt`)**
 
-```c
-Data written successfully.
 ```
-
-**Output: File (`output.txt`)**
-
-```c
-Hello, File Handling in C!
+Hello, C++ File Handling!
+This is a sample file.
 ```
 
 **Example: Reading from a File**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
 int main() {
-    FILE *fp = fopen("output.txt", "r");  // Open file for reading
-    char buffer[100];
+    ifstream fin("example.txt");  // open file for reading
+    string line;
 
-    if (fp == NULL) {
-        printf("File not found!\n");
+    if (!fin) {
+        cout << "File couldn't be opened!" << endl;
         return 1;
     }
 
-    while (fgets(buffer, sizeof(buffer), fp)) {
-        printf("%s", buffer);  // Print each line
+    while (getline(fin, line)) {
+        cout << line << endl;
     }
 
-    fclose(fp);
+    fin.close();
     return 0;
 }
 ```
 
 **Output:**
 
-```c
-Hello, File Handling in C!
+```
+Hello, C++ File Handling!
+This is a sample file.
 ```
 
-### File I/O Error Handling
+**Example: Reading and Writing (Using `fstream`)**
 
-- Always check if `fopen()` returns `NULL`.
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
 
-- Always call `fclose()` to free resources.
+int main() {
+    fstream file;
 
-- Ensure proper file permissions (read/write access).
+    // open file for both reading and writing
+    file.open("data.txt", ios::out | ios::in | ios::trunc);
+
+    if (!file) {
+        cout << "File couldn't be opened!" << endl;
+        return 1;
+    }
+
+    file << "Welcome to C++ fstream!" << endl;
+
+    // Go back to the beginning of file to read
+    file.seekg(0);
+
+    string line;
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+
+    file.close();
+    return 0;
+}
+```
+
+### File Open Modes (`ios::` flags)
+
+| Mode          | Description                   |
+| ------------- | ----------------------------- |
+| `ios::in`     | Open for reading              |
+| `ios::out`    | Open for writing              |
+| `ios::app`    | Append to end of file         |
+| `ios::trunc`  | Delete content if file exists |
+| `ios::binary` | Open in binary mode           |
+
+You can combine them using `|` (bitwise OR):
+
+```cpp
+fstream file("data.txt", ios::in | ios::out);
+```
+
+**Example: Appending to a File**
+
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fout("example.txt", ios::app);  // append mode
+
+    fout << "New line added using append mode.\n";
+
+    fout.close();
+    return 0;
+}
+```
+
+### Check File State
+
+| Function         | Description                              |
+| ---------------- | ---------------------------------------- |
+| `file.is_open()` | Returns true if file opened successfully |
+| `file.eof()`     | Returns true if end-of-file reached      |
+| `file.fail()`    | Returns true if operation failed         |
+| `file.good()`    | Returns true if no error                 |
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -2992,231 +4527,179 @@ Hello, File Handling in C!
 
 ## Preprocessor Directives
 
-Preprocessor directives are instructions to the C preprocessor that **prepare the code** before the actual compilation begins. They are used to **modify** or **define certain aspects** of the code before the program is compiled.
+Preprocessor directives in C++ are **commands for the preprocessor** that execute before the compilation phase. They are used to:
 
-Preprocessor directives begin with a `#` symbol and are **not terminated by a semicolon**.
+- Include files
+- Define constants/macros
+- Enable conditional compilation
+- Give special instructions to the compiler
 
-**Common Preprocessor Directives**
+All preprocessor directives begin with `#` and **do not end with a semicolon**.
 
-| Directive            | Description                                                          |
-| -------------------- | -------------------------------------------------------------------- |
-| `#include`           | Includes header files (standard or user-defined) into the program    |
-| `#define`            | Defines macros or constants that are replaced throughout the code    |
-| `#undef`             | Undefines a macro (removes its definition)                           |
-| `#ifdef` / `#ifndef` | Conditional compilation — checks if a macro is defined or not        |
-| `#else` / `#elif`    | Specifies alternate compilation paths for conditional compilation    |
-| `#endif`             | Ends a conditional preprocessor block                                |
-| `#if`                | Evaluates a condition (true/false) and includes code accordingly     |
-| `#pragma`            | Provides additional instructions to the compiler (compiler-specific) |
+**Common Preprocessor Directives in C++**
+
+| Directive           | Description                                                 |
+| ------------------- | ----------------------------------------------------------- |
+| `#include`          | Includes standard or user-defined header files              |
+| `#define`           | Defines macros/constants                                    |
+| `#undef`            | Undefines (removes) a previously defined macro              |
+| `#ifdef`, `#ifndef` | Conditional compilation based on whether macros are defined |
+| `#else`, `#elif`    | Alternative blocks for conditional compilation              |
+| `#endif`            | Ends a conditional block                                    |
+| `#if`               | Compiles code if a condition is true                        |
+| `#pragma`           | Provides compiler-specific instructions                     |
 
 ### `#include` – Include Files
 
-The `#include` directive is used to include standard or custom header files into the program.
-
-**Syntax:**
-
-```c
-#include <header_file>   // Standard library headers
-#include "header_file"   // User-defined header files
-```
+Used to include header files (standard or user-defined).
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>  // Standard header
 
 int main() {
-    printf("Hello, World!\n");
+    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 Hello, World!
 ```
 
-`stdio.h` is a standard header file included via `<>`.
+### `#define` – Define Constants or Macros
 
-### `#define` – Define Macros
-
-The `#define` directive defines a `macro` or `constant value` that is replaced by the preprocessor.
-
-**Syntax:**
-
-```c
-#define MACRO_NAME value
-```
+Defines a symbolic constant or macro to be replaced before compilation.
 
 **Example:**
 
-```c
-#include <stdio.h>
-
-#define PI 3.14  // Defining a constant
+```cpp
+#include <iostream>
+#define PI 3.14
 
 int main() {
-    float area = PI * 5 * 5;  // Using the defined constant
-    printf("Area of circle: %.2f\n", area);
+    float area = PI * 5 * 5;
+    std::cout << "Area of circle: " << area << std::endl;
     return 0;
 }
 ```
 
 **Output:**
 
-```c
-Area of circle: 78.50
+```
+Area of circle: 78.5
 ```
 
-### `#undef` – Undefine Macros
+### `#undef` – Undefine a Macro
 
-The `#undef` directive is used to `remove a macro definition.`
-
-**Syntax:**
-
-```c
-#undef MACRO_NAME
-```
+Removes a previously defined macro.
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
 
 #define MAX 100
 
 int main() {
-    printf("Max value: %d\n", MAX);
-    #undef MAX  // Undefine MAX
-    // printf("Max value: %d\n", MAX);  // Error: MAX is undefined
+    std::cout << "Max value: " << MAX << std::endl;
+
+    #undef MAX
+    // std::cout << MAX << std::endl; // Error: MAX is undefined
+
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 Max value: 100
 ```
 
 ### `#ifdef` / `#ifndef` – Conditional Compilation
 
-The `#ifdef` (if defined) and `#ifndef` (if not defined) directives allow you to conditionally include code based on whether a macro is defined.
-
-**Syntax:**
-
-```c
-#ifdef MACRO_NAME
-    // Code to include if the macro is defined
-#endif
-
-#ifndef MACRO_NAME
-    // Code to include if the macro is not defined
-#endif
-```
+Includes code if a macro is defined or not defined.
 
 **Example:**
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
 
-#define DEBUG 1
+#define DEBUG
 
 int main() {
     #ifdef DEBUG
-        printf("Debugging is enabled.\n");
+        std::cout << "Debugging is enabled." << std::endl;
     #else
-        printf("Debugging is not enabled.\n");
+        std::cout << "Debugging is not enabled." << std::endl;
     #endif
+
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
 Debugging is enabled.
 ```
 
-### `#else` / `#elif` – Conditional Compilation Else
+### `#else` / `#elif` – Alternate Compilation Paths
 
-The `#else` and `#elif` directives allow you to specify alternate paths for conditional compilation.
-
-**Syntax:**
-
-```c
-# ifdef MACRO_NAME
-
-    // Code if macro is defined
-
-# elif MACRO_NAME_2
-
-    // Code if the second macro is defined
-
-# else
-
-    // Code if none of the above conditions are true
-
-# endif
-```
+Selects among different blocks during compilation.
 
 **Example:**
 
-```c
-# include <stdio.h>
-
-# define VERBOSE 0
-
-int main() {
-
-# if VERBOSE
-
-printf("Verbose mode is enabled.\n");
-
-# else
-
-printf("Verbose mode is disabled.\n");
-
-# endif
-
-return 0;
-}
-```
-
-**Output:**
-
-```c
-Verbose mode is disabled.
-```
-
-### `#pragma` – Compiler Specific Instructions
-
-The `#pragma` directive provides additional instructions to the compiler, often used to manage compiler warnings or optimizations. The use of `#pragma` can vary between compilers.
-
-**Example:**
-
-```c
-#include <stdio.h>
-
-#pragma GCC optimize("O3")  // Optimize for maximum speed
+```cpp
+#include <iostream>
+#define VERBOSE 0
 
 int main() {
-    for (int i = 0; i < 1000000; i++);
-    printf("Loop completed with optimization.\n");
+    #if VERBOSE
+        std::cout << "Verbose mode is enabled." << std::endl;
+    #else
+        std::cout << "Verbose mode is disabled." << std::endl;
+    #endif
+
     return 0;
 }
 ```
 
 **Output:**
 
-```c
+```
+Verbose mode is disabled.
+```
+
+### `#pragma` – Compiler-Specific Directives
+
+Provides additional information to the compiler, such as optimizations or warnings.
+
+**Example (GCC specific):**
+
+```cpp
+#include <iostream>
+
+#pragma GCC optimize("O3")  // Compiler optimization
+
+int main() {
+    for (int i = 0; i < 1000000; ++i);  // Dummy loop
+    std::cout << "Loop completed with optimization." << std::endl;
+    return 0;
+}
+```
+
+**Output:**
+
+```
 Loop completed with optimization.
 ```
 
-> [!CAUTION]
->
-> Actual speed improvement may not be visible in such a small loop but is useful in performance-critical code.
+> [!WARNING] The actual performance gain won't be visible for such a small loop.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -3226,65 +4709,46 @@ Loop completed with optimization.
 
 ## Error Handling
 
-Error handling refers to the **process of responding to and recovering from errors** in a program.
+In C++, **error handling** is done using **exceptions**, which provide a way to detect and manage runtime errors **without crashing** the program.
 
-C does not have built-in exception handling like modern languages (e.g., try-catch), so error detection and response are done using:
+**Key Concepts:**
 
-- Return values (status codes)
-- `errno` (global error variable)
-- `perror()` and `strerror()` for error messages
+| Term             | Description                                                |
+| ---------------- | ---------------------------------------------------------- |
+| `try`            | Block of code that might throw an exception                |
+| `throw`          | Used to **raise** an exception                             |
+| `catch`          | Block of code that **handles** the exception               |
+| `exception`      | An object or value representing the error                  |
+| `std::exception` | Base class for standard exceptions in `<exception>` header |
 
-**Common Techniques for Error Handling in C**
+**Syntax:**
 
-| Method       | Description                                               |
-| ------------ | --------------------------------------------------------- |
-| Return Codes | Functions return `0` or a non-zero code to indicate error |
-| `errno`      | Global variable set by system/library calls on error      |
-| `perror()`   | Prints a human-readable error message to `stderr`         |
-| `strerror()` | Returns a string describing an error code (`errno`)       |
-
-**Example: Return Code Check**
-
-```c
-#include <stdio.h>
-
-int divide(int a, int b, int *result) {
-    if (b == 0) return 1; // Error: division by zero
-    *result = a / b;
-    return 0; // Success
+```cpp
+try {
+    // Code that may throw an exception
+    throw exception_value;
 }
+catch (exception_type variable) {
+    // Handle the exception
+}
+```
+
+**Example: Division by Zero**
+
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    int res;
-    if (divide(10, 0, &res)) {
-        printf("Error: Division by zero is not allowed.\n");
-    } else {
-        printf("Result: %d\n", res);
+    int a = 10, b = 0;
+
+    try {
+        if (b == 0)
+            throw "Division by zero not allowed!";
+        cout << "Result: " << a / b << endl;
     }
-    return 0;
-}
-```
-
-**Output:**
-
-```c
-Error: Division by zero is not allowed.
-```
-
-**Example: Using `errno`, `perror()`, and `strerror()`**
-
-```c
-#include <stdio.h>
-#include <errno.h>
-#include <string.h>
-
-int main() {
-    FILE *fp = fopen("nonexistent.txt", "r");
-
-    if (fp == NULL) {
-        perror("Error opening file");  // Print error to stderr
-        printf("Error Code: %d\n", errno);
-        printf("Error Description: %s\n", strerror(errno));
+    catch (const char* msg) {
+        cout << "Error: " << msg << endl;
     }
 
     return 0;
@@ -3293,17 +4757,113 @@ int main() {
 
 **Output:**
 
-```c
-Error opening file: No such file or directory
-Error Code: 2
-Error Description: No such file or directory
+```
+Error: Division by zero not allowed!
 ```
 
-> [!IMPORTANT]
+**Example: Using Standard Exception**
+
+```cpp
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+int main() {
+    try {
+        throw runtime_error("Something went wrong!");
+    }
+    catch (const runtime_error& e) {
+        cout << "Caught runtime_error: " << e.what() << endl;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Caught runtime_error: Something went wrong!
+```
+
+**Example: Multiple Catch Blocks**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        int choice = 2;
+
+        if (choice == 1)
+            throw 100;
+        else if (choice == 2)
+            throw 3.14;
+        else
+            throw "Unknown error!";
+    }
+    catch (int x) {
+        cout << "Caught integer exception: " << x << endl;
+    }
+    catch (double d) {
+        cout << "Caught double exception: " << d << endl;
+    }
+    catch (const char* msg) {
+        cout << "Caught string exception: " << msg << endl;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Caught double exception: 3.14
+```
+
+**Example: Catch-All Handler**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        throw 'X';
+    }
+    catch (...) {
+        cout << "Caught an unknown exception!" << endl;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Caught an unknown exception!
+```
+
+### Common Standard Exceptions
+
+| Exception Class      | Header        | Description                                      |
+| -------------------- | ------------- | ------------------------------------------------ |
+| `std::exception`     | `<exception>` | Base class for all standard exceptions           |
+| `std::runtime_error` | `<stdexcept>` | Errors detected at runtime                       |
+| `std::logic_error`   | `<stdexcept>` | Logic errors in program (e.g., invalid_argument) |
+| `std::out_of_range`  | `<stdexcept>` | Index out of range                               |
+| `std::bad_alloc`     | `<new>`       | Memory allocation failure                        |
+
+> [!TIP]
 >
-> - Always check the return value of functions like `fopen()`, `malloc()`, `read()`, etc.
-> - Use `perror()` or `strerror(errno)` to understand the error.
-> - Avoid relying on `errno` if the function you're calling does not explicitly set it.
+> - Use exceptions for **exceptional situations** — not for regular control flow.
+> - Always catch by **reference** when using classes like `std::exception`.
+> - Prefer using **standard exceptions** (`std::runtime_error`, `std::out_of_range`, etc.).
+> - Use `noexcept` keyword to specify functions that don't throw exceptions.
+> - Clean up dynamically allocated resources using **RAII** or smart pointers.
 
 <!-- START "Jump to Top"-->
 <p align="right">
@@ -3311,11 +4871,16 @@ Error Description: No such file or directory
 </p>
 <!-- END "Jump to Top" -->
 
-## Practice Problems and Solutions
+## Practice Problems and Projects
 
-This section contains a curated set of common C programming problems with complete solutions and sample outputs. It is designed to reinforce core programming concepts such as conditionals, loops, functions, arrays, pointers, and memory management through hands-on practice.
+This section offers a curated collection of frequently encountered C++ programming problems, complete with detailed solutions and sample outputs. It's tailored to strengthen your understanding of core concepts such as conditionals, loops, functions, arrays, pointers, and dynamic memory—through active, hands-on practice.
 
-Want to explore the code? **[Click this Repo](https://github.com/msa-iqbal/c-code-solutions)** to dive into each solution and start learning by doing!
+**Explore problem-solving in action:**  
+[C++ Code Solutions Repository](https://github.com/msa-iqbal/c-plus-plus-code-solutions)
+
+**Build real-world skills:**
+Check out beginner-friendly to intermediate-level projects here:  
+[C++ Mini Projects Repository](https://github.com/msa-iqbal/c-plus-plus-mini-projects)
 
 <!-- START "Jump to Top"-->
 <p align="right">
