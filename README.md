@@ -1,6 +1,6 @@
 # Hands-on C++
 
-**C++** is a **general-purpose, high-performance programming language** developed as an extension of the **C language** by **Bjarne Stroustrup** at Bell Labs in **1979**. It supports both **procedural** and **object-oriented programming**, making it a **multi-paradigm language**.
+C++ is a general-purpose, high-performance programming language developed as an extension of the C language by Bjarne Stroustrup at Bell Labs in 1979. It supports both procedural and object-oriented programming, making it a multi-paradigm language.
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@
 
 ### <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2699_fe0f/512.gif" alt="⚙" width="15" height="15"> C/C++ Development Setup
 
-**Recommended Tools**
+**Recommended Tools:**
 
 - **Editor**: [Visual Studio Code](https://code.visualstudio.com/) with the official [C/C++ Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - **IDE**: [Code::Blocks](http://www.codeblocks.org/) — preconfigured and suitable for beginners
